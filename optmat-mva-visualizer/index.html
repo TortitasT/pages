@@ -174,7 +174,7 @@
     <div class="card">
       <h2>Line replay</h2>
       <p class="desc">Trains move along the line as the clock advances. Bars under each station show passengers waiting per direction. Hover a train or a bar for details.</p>
-      <svg id="lineSvg" viewBox="0 0 1000 330" role="img" aria-label="Animated map of trains on the L4A line"></svg>
+      <svg id="lineSvg" viewBox="0 0 1000 378" role="img" aria-label="Animated map of trains on the L4A line"></svg>
     </div>
 
     <div class="card">
@@ -375,7 +375,7 @@
   var LX0 = 70, LX1 = 930;
   function stX(l) { return LX0 + (LX1 - LX0) * l / (nL - 1); }
   var trackY = [92, 168];
-  var QBASE = 316, QMAXH = 56;
+  var QBASE = 350, QMAXH = 110;
 
   // static: station lines, names, tracks
   (function buildLineStatic() {
@@ -392,9 +392,9 @@
     a0.textContent = '→';
     var a1 = el('text', { x: LX1 + 32, y: trackY[1] + 4, 'text-anchor': 'start', 'font-size': 13, fill: 'var(--dir1)' }, g);
     a1.textContent = '←';
-    var ql = el('text', { x: LX0 - 26, y: QBASE - 10, 'text-anchor': 'start', 'font-size': 10.5, fill: 'var(--text-muted)' }, g);
-    ql.textContent = 'waiting (bar max = ' + fmtCompact(peakQueue) + ' pax)';
     el('line', { x1: LX0 - 26, y1: QBASE, x2: LX1 + 26, y2: QBASE, stroke: 'var(--grid)', 'stroke-width': 1 }, g);
+    var ql = el('text', { x: LX0 - 26, y: QBASE + 20, 'text-anchor': 'start', 'font-size': 10.5, fill: 'var(--text-muted)' }, g);
+    ql.textContent = 'passengers waiting per direction, square-root scale (full bar = ' + fmtCompact(peakQueue) + ' pax)';
   })();
 
   var dynLayer = el('g', {}, lineSvg);
@@ -423,15 +423,22 @@
   var trainLayer = el('g', {}, lineSvg);
   var coupleLayer = el('g', {}, lineSvg);
 
-  var pillW = 30, pillH = 16;
+  // minimalist train: rounded rear, body, and a nose tapering toward the travel direction;
+  // drawn nose-right and mirrored for direction 1
+  var TRAIN_LEN = 44; // rear (-17) to nose tip (+27), used to size the load fill
+  var trainPathD = 'M -13,-8 H 10 Q 18,-8 26,-2 Q 27.5,0 26,2 Q 18,8 10,8 H -13 Q -17,8 -17,4 V -4 Q -17,-8 -13,-8 Z';
   var trainNodes = trains.map(function (tr) {
     var g = el('g', { display: 'none', cursor: 'default' }, trainLayer);
-    // load gauge: a track rect plus a fill rect clipped by load fraction
-    el('rect', { x: -pillW / 2, y: -pillH / 2, width: pillW, height: pillH, rx: 4, fill: 'var(--surface-1)', stroke: 'var(' + DIRS[tr.f].cssVar + ')', 'stroke-width': 1.5 }, g);
-    var fill = el('rect', { x: -pillW / 2, y: -pillH / 2, width: 0, height: pillH, rx: 4, fill: 'var(' + DIRS[tr.f].cssVar + ')' }, g);
+    var dirG = el('g', tr.f === 1 ? { transform: 'scale(-1,1)' } : {}, g);
+    var clipId = 'train-clip-' + tr.f + '-' + tr.i;
+    var defs = el('defs', {}, dirG);
+    el('path', { d: trainPathD }, el('clipPath', { id: clipId }, defs));
+    el('path', { d: trainPathD, fill: 'var(--surface-1)', stroke: 'var(' + DIRS[tr.f].cssVar + ')', 'stroke-width': 1.5 }, dirG);
+    // load gauge: a fill rect growing rear to nose, clipped to the train silhouette
+    var fill = el('rect', { x: -17, y: -8, width: 0, height: 16, fill: 'var(' + DIRS[tr.f].cssVar + ')', 'clip-path': 'url(#' + clipId + ')' }, dirG);
     var label = el('text', { x: 0, y: 3.8, 'text-anchor': 'middle', 'font-size': 9.5, 'font-weight': 600, fill: 'var(--text-primary)' }, g);
     label.textContent = 'S' + (tr.i + 1);
-    var hit = el('rect', { x: -pillW / 2 - 4, y: -pillH / 2 - 4, width: pillW + 8, height: pillH + 8, fill: 'transparent' }, g);
+    var hit = el('rect', { x: -23, y: -12, width: 56, height: 24, fill: 'transparent' }, g);
     hit.addEventListener('pointermove', function (ev) {
       var st = trainState(tr, simT);
       if (!st) return;
@@ -581,31 +588,58 @@
 
   function setTime(t) {
     simT = Math.max(0, Math.min(tMax, t));
-    render();
+    render(0, true);
   }
-  function render() {
+  // slightly underdamped spring (critical damping would be ~2*sqrt(K)) so trains
+  // ease into stations and slide, not jump, when nudged into side-by-side lanes
+  var SPRING_K = 140, SPRING_C = 17;
+  function render(dtSec, snap) {
     document.getElementById('clockTime').textContent = fmtClock(simT);
     scrub.value = simT;
     playhead.setAttribute('x1', mx(simT));
     playhead.setAttribute('x2', mx(simT));
 
     var onboard = 0;
-    var dwellPos = {};
+    var visible = [];
     trains.forEach(function (tr, idx) {
       var st = trainState(tr, simT);
       var node = trainNodes[idx];
-      if (!st) { node.g.setAttribute('display', 'none'); return; }
+      if (!st) { node.g.setAttribute('display', 'none'); node.spr = null; return; }
+      visible.push({ tr: tr, node: node, st: st, tx: stX(0) + (stX(nL - 1) - stX(0)) * st.pos / (nL - 1), lane: 0 });
+    });
+    // nudge overlapping trains into stacked lanes: walk each direction left to right
+    // and bump any train closer than one train length to its neighbor one lane out
+    for (var fl = 0; fl < 2; fl++) {
+      var group = visible.filter(function (v) { return v.tr.f === fl; })
+        .sort(function (a, b) { return a.tx - b.tx || a.tr.i - b.tr.i; });
+      var prevTx = -1e9, prevLane = 0;
+      group.forEach(function (v) {
+        v.lane = (v.tx - prevTx < TRAIN_LEN + 6) ? prevLane + 1 : 0;
+        prevTx = v.tx; prevLane = v.lane;
+      });
+    }
+    visible.forEach(function (v) {
+      var tr = v.tr, node = v.node, st = v.st;
       node.g.setAttribute('display', '');
-      var x = stX(0) + (stX(nL - 1) - stX(0)) * st.pos / (nL - 1);
-      // nudge coupled/overlapping trains apart vertically so both stay visible
-      var y = trackY[tr.f];
-      var slot = Math.round(st.pos * 4);
-      var key = tr.f + ':' + slot;
-      if (dwellPos[key] !== undefined) y += (tr.f === 0 ? -1 : 1) * 19 * dwellPos[key];
-      dwellPos[key] = (dwellPos[key] || 0) + 1;
-      node.g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+      var tx = v.tx;
+      var ty = trackY[tr.f] + (tr.f === 0 ? -1 : 1) * 20 * v.lane;
+
+      var s = node.spr;
+      if (!s || snap || !dtSec) {
+        s = node.spr = { x: tx, y: ty, vx: 0, vy: 0 };
+      } else {
+        // fixed substeps keep the integration stable across uneven frame times
+        var remaining = Math.min(dtSec, 0.1);
+        while (remaining > 0) {
+          var h = Math.min(remaining, 1 / 120);
+          s.vx += (SPRING_K * (tx - s.x) - SPRING_C * s.vx) * h; s.x += s.vx * h;
+          s.vy += (SPRING_K * (ty - s.y) - SPRING_C * s.vy) * h; s.y += s.vy * h;
+          remaining -= h;
+        }
+      }
+      node.g.setAttribute('transform', 'translate(' + s.x + ',' + s.y + ')');
       var frac = tr.cap > 0 ? Math.min(1, st.load / tr.cap) : 0;
-      node.fill.setAttribute('width', pillW * frac);
+      node.fill.setAttribute('width', TRAIN_LEN * frac);
       onboard += st.load;
     });
 
@@ -613,7 +647,8 @@
     queueBars.forEach(function (qb) {
       var q = queueAt(qb.l, qb.f, simT);
       waiting += q;
-      var h = peakQueue > 0 ? Math.min(QMAXH, q / peakQueue * QMAXH) : 0;
+      // square-root scale: early small queues stay visible next to the 27K rush-hour peaks
+      var h = peakQueue > 0 ? QMAXH * Math.sqrt(Math.min(1, q / peakQueue)) : 0;
       qb.rect.setAttribute('y', QBASE - h);
       qb.rect.setAttribute('height', h);
     });
@@ -627,9 +662,10 @@
   function frame(ts) {
     if (!playing) return;
     if (lastFrame !== null) {
-      simT += (ts - lastFrame) / 1000 * Number(speedSel.value);
+      var dt = (ts - lastFrame) / 1000;
+      simT += dt * Number(speedSel.value);
       if (simT >= tMax) { simT = tMax; setPlaying(false); }
-      render();
+      render(dt, false);
     }
     lastFrame = ts;
     if (playing) requestAnimationFrame(frame);
