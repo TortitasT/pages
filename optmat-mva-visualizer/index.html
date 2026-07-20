@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santiago L4A: Optimized Timetable Replay</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --dir0: #2a78d6;   /* series 1, toward Vicuna Mackenna */
+    --dir1: #008300;   /* series 2, toward La Cisterna */
+    --accent-wash: rgba(42,120,214,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --dir0: #3987e5;
+      --dir1: #008300;
+      --accent-wash: rgba(57,135,229,0.14);
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255,255,255,0.10);
+    --dir0: #3987e5;
+    --dir1: #008300;
+    --accent-wash: rgba(57,135,229,0.14);
+  }
+
+  body { background: var(--page); }
+  .viz-root {
+    min-height: 100vh;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 28px 20px 48px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  h1 { font-size: 22px; font-weight: 650; letter-spacing: -0.01em; }
+  .subtitle { color: var(--text-secondary); font-size: 13.5px; margin-top: 5px; max-width: 640px; line-height: 1.45; }
+  .subtitle a { color: inherit; }
+  .theme-btn {
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
+    border-radius: 8px; padding: 6px 12px; font-size: 12.5px; cursor: pointer; font-family: inherit;
+    flex-shrink: 0;
+  }
+  .theme-btn:hover { color: var(--text-primary); }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 18px; }
+  .tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .tile .label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+  .tile .value { font-size: 24px; font-weight: 600; }
+  .tile .hint { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+  .card h2 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .card .desc { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+
+  .controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .play-btn {
+    width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--dir0); color: #fff; font-size: 15px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .play-btn:hover { filter: brightness(1.08); }
+  select.speed {
+    font-family: inherit; font-size: 13px; color: var(--text-primary); background: var(--surface-1);
+    border: 1px solid var(--border); border-radius: 8px; padding: 7px 8px; cursor: pointer;
+  }
+  .clock { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; min-width: 108px; }
+  .clock small { display: block; font-size: 11px; font-weight: 400; color: var(--text-muted); }
+  input.scrub { flex: 1; min-width: 180px; accent-color: var(--dir0); height: 28px; cursor: pointer; }
+  .live { display: flex; gap: 20px; margin-left: auto; }
+  .live div { text-align: right; }
+  .live .v { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .live .l { font-size: 11px; color: var(--text-muted); }
+
+  .legend { display: flex; gap: 18px; align-items: center; font-size: 12.5px; color: var(--text-secondary); margin-bottom: 8px; flex-wrap: wrap; }
+  .legend .key { display: inline-block; width: 18px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  .tooltip {
+    position: fixed; pointer-events: none; z-index: 10; display: none;
+    background: var(--surface-1); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px;
+    font-size: 12px; line-height: 1.5; box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    max-width: 300px;
+  }
+  .tooltip .tt-title { font-weight: 600; margin-bottom: 2px; }
+  .tooltip .tt-row { display: flex; align-items: baseline; gap: 7px; color: var(--text-secondary); }
+  .tooltip .tt-row .tt-key { width: 14px; height: 3px; border-radius: 2px; flex-shrink: 0; align-self: center; }
+  .tooltip .tt-row strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+  details.table-view { margin-top: 4px; }
+  details.table-view summary { cursor: pointer; font-size: 13px; color: var(--text-secondary); padding: 6px 2px; }
+  .table-scroll { overflow-x: auto; margin-top: 8px; }
+  table { border-collapse: collapse; font-size: 12px; width: 100%; min-width: 720px; }
+  th, td { text-align: right; padding: 4px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  th:first-child, td:first-child, th:nth-child(2), td:nth-child(2), th:nth-child(3), td:nth-child(3) { text-align: left; }
+  th { color: var(--text-muted); font-weight: 500; position: sticky; top: 0; background: var(--surface-1); }
+
+  footer { color: var(--text-muted); font-size: 12px; line-height: 1.5; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="viz-root" id="app">
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Santiago L4A: optimized timetable replay</h1>
+        <p class="subtitle">
+          Replay of the exact solution found by the two-stage Gurobi MILP for the collaborative optimization of
+          train timetabling, rolling stock allocation and virtual coupling on the Santiago de Chile L4A line
+          (6 stations, both directions). Model by Michel Verdu Alvarez, Mathematical Optimization, University of Trieste 2025/26.
+        </p>
+      </div>
+      <button class="theme-btn" id="themeBtn" type="button">Theme: auto</button>
+    </header>
+
+    <div class="tiles" id="tiles"></div>
+
+    <div class="card">
+      <div class="controls">
+        <button class="play-btn" id="playBtn" type="button" aria-label="Play">&#9654;</button>
+        <select class="speed" id="speed" aria-label="Playback speed">
+          <option value="5">5x</option>
+          <option value="15">15x</option>
+          <option value="30" selected>30x</option>
+          <option value="60">60x</option>
+          <option value="120">120x</option>
+        </select>
+        <div class="clock"><span id="clockTime">06:00:00</span><small id="clockSub">simulated time</small></div>
+        <input class="scrub" id="scrub" type="range" min="0" max="3600" step="1" value="0" aria-label="Timeline scrubber">
+        <div class="live">
+          <div><div class="v" id="liveOnboard">0</div><div class="l">on board now</div></div>
+          <div><div class="v" id="liveWaiting">0</div><div class="l">waiting now</div></div>
+          <div><div class="v" id="liveLeft">0</div><div class="l">left behind so far</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend" id="legend"></div>
+
+    <div class="card">
+      <h2>Line replay</h2>
+      <p class="desc">Trains move along the line as the clock advances. Bars under each station show passengers waiting per direction. Hover a train or a bar for details.</p>
+      <svg id="lineSvg" viewBox="0 0 1000 330" role="img" aria-label="Animated map of trains on the L4A line"></svg>
+    </div>
+
+    <div class="card">
+      <h2>Space-time diagram</h2>
+      <p class="desc">Each line is one service: horizontal segments are station dwells. Hover to inspect, click or drag to jump the replay to that moment.</p>
+      <svg id="mareySvg" viewBox="0 0 1000 430" role="img" aria-label="Space-time diagram of all services"></svg>
+      <details class="table-view">
+        <summary>Table view: full timetable and passenger data</summary>
+        <div class="table-scroll"><table id="dataTable"></table></div>
+      </details>
+    </div>
+
+    <footer id="foot"></footer>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+</div>
+
+<script src="solution.js"></script>
+<script>
+(function () {
+  "use strict";
+  var S = window.SOLUTION;
+  if (!S) { document.getElementById('app').textContent = 'solution.js not found. Run export_solution.py first.'; return; }
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var nI = S.meta.services, nL = S.meta.stations;
+  var names = S.meta.stationNames;
+  var caps = S.meta.capacities;
+  var DIRS = [
+    { f: 0, name: 'Toward ' + names[nL - 1], cssVar: '--dir0' },
+    { f: 1, name: 'Toward ' + names[0], cssVar: '--dir1' }
+  ];
+
+  function el(tag, attrs, parent) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function div(cls, parent, text) {
+    var n = document.createElement('div');
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function fmtInt(v) { return Math.round(v).toLocaleString('en-US'); }
+  function fmtCompact(v) {
+    if (v >= 1e6) return (v / 1e6).toFixed(1) + 'M';
+    if (v >= 10000) return (v / 1e3).toFixed(1) + 'K';
+    return fmtInt(v);
+  }
+  // Model time is seconds from t_first; the demand data starts at the 06:00 block
+  function fmtClock(t) {
+    t = Math.max(0, Math.round(t));
+    var h = 6 + Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), s = t % 60;
+    function p(x) { return (x < 10 ? '0' : '') + x; }
+    return p(h) + ':' + p(m) + ':' + p(s);
+  }
+  function capOf(i, f) {
+    var c = 0;
+    for (var d = 0; d < caps.length; d++) c += S.e[i][d][f] * caps[d];
+    return c;
+  }
+  function stockOf(i, f) {
+    for (var d = 0; d < caps.length; d++) if (S.e[i][d][f]) return String.fromCharCode(65 + d);
+    return '?';
+  }
+
+  // ---- Precompute per-train journey segments ----
+  // dir 0 visits stations 0..nL-1, dir 1 visits nL-1..0
+  var trains = [];
+  for (var f = 0; f < 2; f++) {
+    for (var i = 0; i < nI; i++) {
+      var order = [];
+      for (var l = 0; l < nL; l++) order.push(f === 0 ? l : nL - 1 - l);
+      var segs = [];
+      for (var k = 0; k < order.length; k++) {
+        var l0 = order[k];
+        segs.push({ kind: 'dwell', t0: S.TA[i][l0][f], t1: S.TD[i][l0][f], l: l0 });
+        if (k < order.length - 1) {
+          var l1 = order[k + 1];
+          segs.push({ kind: 'run', t0: S.TD[i][l0][f], t1: S.TA[i][l1][f], from: l0, to: l1 });
+        }
+      }
+      trains.push({ i: i, f: f, segs: segs, t0: segs[0].t0, t1: segs[segs.length - 1].t1, cap: capOf(i, f), stock: stockOf(i, f) });
+    }
+  }
+  var tMax = 0;
+  trains.forEach(function (tr) { tMax = Math.max(tMax, tr.t1); });
+
+  function trainState(tr, t) {
+    if (t < tr.t0 || t > tr.t1) return null;
+    for (var k = 0; k < tr.segs.length; k++) {
+      var sg = tr.segs[k];
+      if (t <= sg.t1 || k === tr.segs.length - 1) {
+        if (sg.kind === 'dwell') {
+          return { pos: sg.l, dwellAt: sg.l, load: S.non[tr.i][sg.l][tr.f] };
+        }
+        var u = sg.t1 > sg.t0 ? (t - sg.t0) / (sg.t1 - sg.t0) : 1;
+        return { pos: sg.from + (sg.to - sg.from) * u, dwellAt: -1, load: S.non[tr.i][sg.from][tr.f] };
+      }
+    }
+    return null;
+  }
+
+  // ---- Queues: passengers waiting at station l, direction f, at time t ----
+  // Between departures, arrivals accrue at rate b of the upcoming service
+  // (matches the model: narrive[i] = h[i] * b[i], h[i] = TD[i] - TD[i-1]).
+  function queueAt(l, f, t) {
+    var i = 0;
+    while (i < nI && S.TD[i][l][f] <= t) i++;
+    if (i >= nI) return S.ndet[nI - 1][l][f];
+    var prevTD = i > 0 ? S.TD[i - 1][l][f] : S.meta.tFirst;
+    var base = i > 0 ? S.ndet[i - 1][l][f] : 0;
+    if (t < prevTD) return base;
+    return base + S.b[i][l][f] * (t - prevTD);
+  }
+
+  // ---- Cumulative boarded / left-behind events ----
+  // Left-behind matches ndettot: a queue picked up by a coupled follower (p=1) is not "left behind"
+  var events = [];
+  for (var f2 = 0; f2 < 2; f2++) for (var i2 = 0; i2 < nI; i2++) for (var l2 = 0; l2 < nL; l2++) {
+    var coupledNext = (i2 < nI - 1) ? S.p[i2][l2][f2] : 0;
+    events.push({ t: S.TD[i2][l2][f2], boarded: S.nina[i2][l2][f2], left: S.ndet[i2][l2][f2] * (1 - coupledNext) });
+  }
+  events.sort(function (a, b) { return a.t - b.t; });
+
+  var totBoarded = 0, totLeft = 0, peakQueue = 0;
+  events.forEach(function (e) { totBoarded += e.boarded; totLeft += e.left; });
+  for (var fq = 0; fq < 2; fq++) for (var iq = 0; iq < nI; iq++) for (var lq = 0; lq < nL; lq++)
+    peakQueue = Math.max(peakQueue, S.nwait[iq][lq][fq]);
+
+  function cumulAt(t) {
+    var b = 0, lf = 0;
+    for (var k = 0; k < events.length; k++) {
+      if (events[k].t > t) break;
+      b += events[k].boarded; lf += events[k].left;
+    }
+    return { boarded: b, left: lf };
+  }
+
+  // ---- Stat tiles ----
+  var tiles = document.getElementById('tiles');
+  function tile(label, value, hint) {
+    var t = div('tile', tiles);
+    div('label', t, label);
+    div('value', t, value);
+    if (hint) div('hint', t, hint);
+  }
+  tile('Services', nI + ' × 2', 'per direction, 06:00 to ' + fmtClock(tMax).slice(0, 5));
+  tile('Stations', String(nL), names[0] + ' to ' + names[nL - 1]);
+  tile('Passengers boarded', fmtCompact(totBoarded), 'train capacities ' + caps.join(' / ') + ' pax');
+  tile('Left behind', fmtCompact(totLeft), 'could not board any train');
+  tile('Objective value', S.meta.objective.toFixed(2), 'weighted: fleet reuse + service quality');
+
+  // ---- Legend ----
+  var legend = document.getElementById('legend');
+  DIRS.forEach(function (d) {
+    var item = document.createElement('span');
+    var key = document.createElement('span');
+    key.className = 'key';
+    key.style.background = 'var(' + d.cssVar + ')';
+    item.appendChild(key);
+    item.appendChild(document.createTextNode(d.name));
+    legend.appendChild(item);
+  });
+  var lgNote = document.createElement('span');
+  lgNote.style.color = 'var(--text-muted)';
+  lgNote.textContent = 'Pill label = service number, fill = passenger load';
+  legend.appendChild(lgNote);
+
+  // ---- Tooltip ----
+  var tip = document.getElementById('tooltip');
+  function tipShow(x, y, build) {
+    tip.textContent = '';
+    build(tip);
+    tip.style.display = 'block';
+    var r = tip.getBoundingClientRect();
+    var px = Math.min(x + 14, window.innerWidth - r.width - 8);
+    var py = Math.min(y + 14, window.innerHeight - r.height - 8);
+    tip.style.left = px + 'px';
+    tip.style.top = py + 'px';
+  }
+  function tipHide() { tip.style.display = 'none'; }
+  function tipTitle(parent, text) { div('tt-title', parent, text); }
+  function tipRow(parent, color, valueText, labelText) {
+    var r = div('tt-row', parent);
+    if (color) { var k = div('tt-key', r); k.style.background = color; }
+    var strong = document.createElement('strong');
+    strong.textContent = valueText;
+    r.appendChild(strong);
+    r.appendChild(document.createTextNode(' ' + labelText));
+  }
+
+  // ================= LINE REPLAY =================
+  var lineSvg = document.getElementById('lineSvg');
+  var LX0 = 70, LX1 = 930;
+  function stX(l) { return LX0 + (LX1 - LX0) * l / (nL - 1); }
+  var trackY = [92, 168];
+  var QBASE = 316, QMAXH = 56;
+
+  // static: station lines, names, tracks
+  (function buildLineStatic() {
+    var g = el('g', {}, lineSvg);
+    for (var l = 0; l < nL; l++) {
+      el('line', { x1: stX(l), y1: 60, x2: stX(l), y2: 196, stroke: 'var(--grid)', 'stroke-width': 1 }, g);
+      var t = el('text', { x: stX(l), y: 216, 'text-anchor': 'middle', 'font-size': 12, fill: 'var(--text-secondary)' }, g);
+      t.textContent = names[l];
+    }
+    trackY.forEach(function (y) {
+      el('line', { x1: LX0 - 26, y1: y, x2: LX1 + 26, y2: y, stroke: 'var(--baseline)', 'stroke-width': 1.5 }, g);
+    });
+    var a0 = el('text', { x: LX0 - 32, y: trackY[0] + 4, 'text-anchor': 'end', 'font-size': 13, fill: 'var(--dir0)' }, g);
+    a0.textContent = '→';
+    var a1 = el('text', { x: LX1 + 32, y: trackY[1] + 4, 'text-anchor': 'start', 'font-size': 13, fill: 'var(--dir1)' }, g);
+    a1.textContent = '←';
+    var ql = el('text', { x: LX0 - 26, y: QBASE - 10, 'text-anchor': 'start', 'font-size': 10.5, fill: 'var(--text-muted)' }, g);
+    ql.textContent = 'waiting (bar max = ' + fmtCompact(peakQueue) + ' pax)';
+    el('line', { x1: LX0 - 26, y1: QBASE, x2: LX1 + 26, y2: QBASE, stroke: 'var(--grid)', 'stroke-width': 1 }, g);
+  })();
+
+  var dynLayer = el('g', {}, lineSvg);
+
+  // queue bars (two per station, side by side, 2px surface gap)
+  var queueBars = [];
+  for (var lq2 = 0; lq2 < nL; lq2++) {
+    for (var fq2 = 0; fq2 < 2; fq2++) {
+      var bx = stX(lq2) + (fq2 === 0 ? -12 : 2);
+      var rect = el('rect', { x: bx, y: QBASE, width: 10, height: 0, fill: 'var(' + DIRS[fq2].cssVar + ')', rx: 2 }, dynLayer);
+      var hit = el('rect', { x: bx - 4, y: QBASE - QMAXH - 6, width: 18, height: QMAXH + 10, fill: 'transparent' }, dynLayer);
+      (function (l, f, hitEl) {
+        hitEl.addEventListener('pointermove', function (ev) {
+          var q = Math.round(queueAt(l, f, simT));
+          tipShow(ev.clientX, ev.clientY, function (p) {
+            tipTitle(p, names[l] + ' at ' + fmtClock(simT));
+            tipRow(p, getCss(DIRS[f].cssVar), fmtInt(q) + ' pax', 'waiting ' + DIRS[f].name.toLowerCase());
+          });
+        });
+        hitEl.addEventListener('pointerleave', tipHide);
+      })(lq2, fq2, hit);
+      queueBars.push({ l: lq2, f: fq2, rect: rect });
+    }
+  }
+
+  var trainLayer = el('g', {}, lineSvg);
+  var coupleLayer = el('g', {}, lineSvg);
+
+  var pillW = 30, pillH = 16;
+  var trainNodes = trains.map(function (tr) {
+    var g = el('g', { display: 'none', cursor: 'default' }, trainLayer);
+    // load gauge: a track rect plus a fill rect clipped by load fraction
+    el('rect', { x: -pillW / 2, y: -pillH / 2, width: pillW, height: pillH, rx: 4, fill: 'var(--surface-1)', stroke: 'var(' + DIRS[tr.f].cssVar + ')', 'stroke-width': 1.5 }, g);
+    var fill = el('rect', { x: -pillW / 2, y: -pillH / 2, width: 0, height: pillH, rx: 4, fill: 'var(' + DIRS[tr.f].cssVar + ')' }, g);
+    var label = el('text', { x: 0, y: 3.8, 'text-anchor': 'middle', 'font-size': 9.5, 'font-weight': 600, fill: 'var(--text-primary)' }, g);
+    label.textContent = 'S' + (tr.i + 1);
+    var hit = el('rect', { x: -pillW / 2 - 4, y: -pillH / 2 - 4, width: pillW + 8, height: pillH + 8, fill: 'transparent' }, g);
+    hit.addEventListener('pointermove', function (ev) {
+      var st = trainState(tr, simT);
+      if (!st) return;
+      tipShow(ev.clientX, ev.clientY, function (p) {
+        tipTitle(p, 'Service ' + (tr.i + 1) + ', ' + DIRS[tr.f].name.toLowerCase());
+        tipRow(p, getCss(DIRS[tr.f].cssVar), fmtInt(st.load) + ' / ' + tr.cap + ' pax', 'on board (stock ' + tr.stock + ')');
+        var where = st.dwellAt >= 0 ? 'dwelling at ' + names[st.dwellAt]
+          : 'between ' + names[Math.min(Math.floor(st.pos), Math.ceil(st.pos))] + ' and ' + names[Math.max(Math.floor(st.pos), Math.ceil(st.pos))];
+        tipRow(p, null, fmtClock(simT), where);
+        if (st.dwellAt >= 0) {
+          var pHere = tr.i < nI - 1 ? S.p[tr.i][st.dwellAt][tr.f] : 0;
+          var pPrev = tr.i > 0 ? S.p[tr.i - 1][st.dwellAt][tr.f] : 0;
+          if (pHere) tipRow(p, null, 'coupled', 'with service ' + (tr.i + 2) + ' at this station');
+          else if (pPrev) tipRow(p, null, 'coupled', 'with service ' + tr.i + ' at this station');
+        }
+      });
+    });
+    hit.addEventListener('pointerleave', tipHide);
+    return { g: g, fill: fill, label: label };
+  });
+
+  function getCss(varName) {
+    return getComputedStyle(document.getElementById('app')).getPropertyValue(varName).trim();
+  }
+
+  // ================= SPACE-TIME (MAREY) DIAGRAM =================
+  var marey = document.getElementById('mareySvg');
+  var MX0 = 70, MX1 = 976, MY0 = 26, MY1 = 370;
+  function mx(t) { return MX0 + (MX1 - MX0) * t / tMax; }
+  // station 0 at the bottom, like the matplotlib figure in test.py
+  function my(l) { return MY1 - (MY1 - MY0) * l / (nL - 1); }
+
+  (function buildMarey() {
+    var g = el('g', {}, marey);
+    for (var l = 0; l < nL; l++) {
+      el('line', { x1: MX0, y1: my(l), x2: MX1, y2: my(l), stroke: 'var(--grid)', 'stroke-width': 1 }, g);
+      var t = el('text', { x: MX0 - 8, y: my(l) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--text-secondary)' }, g);
+      t.textContent = names[l];
+    }
+    for (var tt = 0; tt <= tMax; tt += 600) {
+      el('line', { x1: mx(tt), y1: MY0, x2: mx(tt), y2: MY1, stroke: 'var(--grid)', 'stroke-width': 1 }, g);
+      var lb = el('text', { x: mx(tt), y: MY1 + 36, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--text-muted)' }, g);
+      lb.textContent = fmtClock(tt).slice(0, 5);
+    }
+    el('line', { x1: MX0, y1: MY1, x2: MX1, y2: MY1, stroke: 'var(--baseline)', 'stroke-width': 1 }, g);
+
+    trains.forEach(function (tr) {
+      var pts = [];
+      tr.segs.forEach(function (sg) {
+        if (sg.kind === 'dwell') { pts.push([mx(sg.t0), my(sg.l)]); pts.push([mx(sg.t1), my(sg.l)]); }
+      });
+      el('polyline', {
+        points: pts.map(function (p) { return p[0] + ',' + p[1]; }).join(' '),
+        fill: 'none', stroke: 'var(' + DIRS[tr.f].cssVar + ')', 'stroke-width': 2,
+        'stroke-linejoin': 'round', 'stroke-linecap': 'round'
+      }, g);
+      // direct label at each line's start, muted so it supplements the legend without shouting;
+      // staggered into two rows because rush-hour departures sit only ~60s apart and would collide
+      var lx = pts[0][0], ly = pts[0][1];
+      var rowShift = (tr.i % 2) * 10;
+      var t2 = el('text', {
+        x: lx, y: ly + (tr.f === 0 ? 12 + rowShift : -6 - rowShift),
+        'text-anchor': 'middle', 'font-size': 9, fill: 'var(--text-muted)'
+      }, g);
+      t2.textContent = 'S' + (tr.i + 1);
+    });
+  })();
+
+  var playhead = el('line', { x1: mx(0), y1: MY0, x2: mx(0), y2: MY1, stroke: 'var(--text-secondary)', 'stroke-width': 1.5 }, marey);
+  var crosshair = el('line', { x1: 0, y1: MY0, x2: 0, y2: MY1, stroke: 'var(--text-muted)', 'stroke-width': 1, 'stroke-dasharray': 'none', display: 'none' }, marey);
+
+  function mareyTimeFromEvent(ev) {
+    var r = marey.getBoundingClientRect();
+    var xr = (ev.clientX - r.left) / r.width * 1000;
+    return Math.max(0, Math.min(tMax, (xr - MX0) / (MX1 - MX0) * tMax));
+  }
+  var mareyDragging = false;
+  marey.addEventListener('pointerdown', function (ev) {
+    mareyDragging = true;
+    marey.setPointerCapture(ev.pointerId);
+    setTime(mareyTimeFromEvent(ev));
+  });
+  marey.addEventListener('pointerup', function () { mareyDragging = false; });
+  marey.addEventListener('pointermove', function (ev) {
+    var t = mareyTimeFromEvent(ev);
+    if (mareyDragging) setTime(t);
+    crosshair.setAttribute('display', '');
+    crosshair.setAttribute('x1', mx(t));
+    crosshair.setAttribute('x2', mx(t));
+    var active = [];
+    trains.forEach(function (tr) {
+      var st = trainState(tr, t);
+      if (st) active.push({ tr: tr, st: st });
+    });
+    tipShow(ev.clientX, ev.clientY, function (p) {
+      tipTitle(p, fmtClock(t) + ' · ' + active.length + ' train' + (active.length === 1 ? '' : 's') + ' running');
+      active.slice(0, 8).forEach(function (a) {
+        var where = a.st.dwellAt >= 0 ? 'at ' + names[a.st.dwellAt]
+          : names[a.tr.f === 0 ? Math.floor(a.st.pos) : Math.ceil(a.st.pos)] + ' → ' + names[a.tr.f === 0 ? Math.ceil(a.st.pos) : Math.floor(a.st.pos)];
+        tipRow(p, getCss(DIRS[a.tr.f].cssVar), 'S' + (a.tr.i + 1), where + ' (' + fmtInt(a.st.load) + ' pax)');
+      });
+      if (active.length > 8) tipRow(p, null, '+' + (active.length - 8), 'more, see table view');
+    });
+  });
+  marey.addEventListener('pointerleave', function () { crosshair.setAttribute('display', 'none'); tipHide(); });
+
+  // ================= TABLE VIEW =================
+  (function buildTable() {
+    var table = document.getElementById('dataTable');
+    var thead = document.createElement('thead');
+    var hr = document.createElement('tr');
+    ['Service', 'Direction', 'Station', 'Arrives', 'Departs', 'Boarded', 'Alighted', 'On board leaving', 'Left behind'].forEach(function (h) {
+      var th = document.createElement('th'); th.textContent = h; hr.appendChild(th);
+    });
+    thead.appendChild(hr); table.appendChild(thead);
+    var tbody = document.createElement('tbody');
+    trains.forEach(function (tr) {
+      var order = tr.segs.filter(function (s) { return s.kind === 'dwell'; });
+      order.forEach(function (sg) {
+        var l = sg.l;
+        var row = document.createElement('tr');
+        [
+          'S' + (tr.i + 1) + ' (' + tr.stock + ')',
+          DIRS[tr.f].name,
+          names[l],
+          fmtClock(S.TA[tr.i][l][tr.f]),
+          fmtClock(S.TD[tr.i][l][tr.f]),
+          fmtInt(S.nina[tr.i][l][tr.f]),
+          fmtInt(S.nalight[tr.i][l][tr.f]),
+          fmtInt(S.non[tr.i][l][tr.f]) + ' / ' + tr.cap,
+          fmtInt(S.ndet[tr.i][l][tr.f])
+        ].forEach(function (v) {
+          var td = document.createElement('td'); td.textContent = v; row.appendChild(td);
+        });
+        tbody.appendChild(row);
+      });
+    });
+    table.appendChild(tbody);
+  })();
+
+  // ================= PLAYBACK =================
+  var simT = 0, playing = false, lastFrame = null;
+  var playBtn = document.getElementById('playBtn');
+  var scrub = document.getElementById('scrub');
+  var speedSel = document.getElementById('speed');
+  scrub.max = tMax;
+
+  function setTime(t) {
+    simT = Math.max(0, Math.min(tMax, t));
+    render();
+  }
+  function render() {
+    document.getElementById('clockTime').textContent = fmtClock(simT);
+    scrub.value = simT;
+    playhead.setAttribute('x1', mx(simT));
+    playhead.setAttribute('x2', mx(simT));
+
+    var onboard = 0;
+    var dwellPos = {};
+    trains.forEach(function (tr, idx) {
+      var st = trainState(tr, simT);
+      var node = trainNodes[idx];
+      if (!st) { node.g.setAttribute('display', 'none'); return; }
+      node.g.setAttribute('display', '');
+      var x = stX(0) + (stX(nL - 1) - stX(0)) * st.pos / (nL - 1);
+      // nudge coupled/overlapping trains apart vertically so both stay visible
+      var y = trackY[tr.f];
+      var slot = Math.round(st.pos * 4);
+      var key = tr.f + ':' + slot;
+      if (dwellPos[key] !== undefined) y += (tr.f === 0 ? -1 : 1) * 19 * dwellPos[key];
+      dwellPos[key] = (dwellPos[key] || 0) + 1;
+      node.g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+      var frac = tr.cap > 0 ? Math.min(1, st.load / tr.cap) : 0;
+      node.fill.setAttribute('width', pillW * frac);
+      onboard += st.load;
+    });
+
+    var waiting = 0;
+    queueBars.forEach(function (qb) {
+      var q = queueAt(qb.l, qb.f, simT);
+      waiting += q;
+      var h = peakQueue > 0 ? Math.min(QMAXH, q / peakQueue * QMAXH) : 0;
+      qb.rect.setAttribute('y', QBASE - h);
+      qb.rect.setAttribute('height', h);
+    });
+
+    var cum = cumulAt(simT);
+    document.getElementById('liveOnboard').textContent = fmtInt(onboard);
+    document.getElementById('liveWaiting').textContent = fmtCompact(waiting);
+    document.getElementById('liveLeft').textContent = fmtCompact(cum.left);
+  }
+
+  function frame(ts) {
+    if (!playing) return;
+    if (lastFrame !== null) {
+      simT += (ts - lastFrame) / 1000 * Number(speedSel.value);
+      if (simT >= tMax) { simT = tMax; setPlaying(false); }
+      render();
+    }
+    lastFrame = ts;
+    if (playing) requestAnimationFrame(frame);
+  }
+  function setPlaying(on) {
+    playing = on;
+    playBtn.innerHTML = on ? '&#10074;&#10074;' : '&#9654;';
+    playBtn.setAttribute('aria-label', on ? 'Pause' : 'Play');
+    lastFrame = null;
+    if (on) {
+      if (simT >= tMax) simT = 0;
+      requestAnimationFrame(frame);
+    }
+  }
+  playBtn.addEventListener('click', function () { setPlaying(!playing); });
+  scrub.addEventListener('input', function () { setTime(Number(scrub.value)); });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.code === 'Space' && ev.target === document.body) { ev.preventDefault(); setPlaying(!playing); }
+  });
+
+  // ---- Theme toggle: auto -> light -> dark ----
+  var themeBtn = document.getElementById('themeBtn');
+  var themes = ['auto', 'light', 'dark'];
+  var themeIdx = Math.max(0, themes.indexOf(localStorage.getItem('l4a-theme') || 'auto'));
+  function applyTheme() {
+    var t = themes[themeIdx];
+    if (t === 'auto') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', t);
+    themeBtn.textContent = 'Theme: ' + t;
+    localStorage.setItem('l4a-theme', t);
+  }
+  themeBtn.addEventListener('click', function () { themeIdx = (themeIdx + 1) % themes.length; applyTheme(); });
+  applyTheme();
+
+  // ---- Footer ----
+  document.getElementById('foot').textContent =
+    'Data: exact optimal solution (MIP gap 0.01%) exported from the two-stage Gurobi model in test.py, ' +
+    'demand from ChileViajeros.xlsx. Passenger counts replay the model variables (nwait, nina, non, ndet); ' +
+    'positions between stations are interpolated between the optimized departure and arrival times.';
+
+  setTime(S.meta.TDfirst[0]);
+})();
+</script>
+</body>
+</html>
