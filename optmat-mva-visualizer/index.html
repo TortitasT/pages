@@ -701,8 +701,11 @@
   applyTheme();
 
   // ---- Footer ----
+  var gapNote = S.meta.mipGap !== undefined
+    ? (S.meta.mipGap < 0.0005 ? 'proven optimal' : 'within ' + (S.meta.mipGap * 100).toFixed(1) + '% of the proven optimum')
+    : 'best found';
   document.getElementById('foot').textContent =
-    'Data: exact optimal solution (MIP gap 0.01%) exported from the two-stage Gurobi model in test.py, ' +
+    'Data: solution (' + gapNote + ') exported from the two-stage Gurobi model in test.py, ' +
     'demand from ChileViajeros.xlsx. Passenger counts replay the model variables (nwait, nina, non, ndet); ' +
     'positions between stations are interpolated between the optimized departure and arrival times.';
 
