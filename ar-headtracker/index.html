@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Victor García Fernández — Apps</title>
-<meta name="description" content="Apps and projects by Victor García Fernández.">
+<title>AR Headtracker</title>
+<meta name="description" content="AR Headtracker turns your Android phone into a 6DOF inside-out head tracker for OpenTrack on your PC.">
 <style>
   :root { color-scheme: light dark; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -50,24 +50,23 @@
     font-size: 1.05rem;
   }
 
-  a.card {
-    display: block;
+  section {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 14px;
-    padding: clamp(20px, 4vw, 28px);
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: inherit;
+    padding: clamp(20px, 4vw, 32px);
+    margin-bottom: 24px;
   }
-  a.card:hover { border-color: var(--accent); }
-  a.card h2 {
+  h2 {
     font-size: 1.15rem;
     letter-spacing: -0.01em;
-    margin-bottom: 6px;
-    color: var(--accent);
+    margin-bottom: 14px;
   }
-  a.card p { color: var(--ink-soft); font-size: 0.95rem; }
+  ul { padding-left: 1.2em; }
+  li { margin-bottom: 8px; }
+
+  a { color: var(--accent); }
+  a:hover { text-decoration: none; }
 
   footer {
     margin-top: 40px;
@@ -76,33 +75,33 @@
     color: var(--ink-soft);
     font-size: 0.9rem;
   }
-  footer a { color: var(--accent); }
+  footer a { margin-right: 18px; }
 </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Victor García Fernández</h1>
-    <p class="tagline">Apps and projects.</p>
+    <h1>AR Headtracker</h1>
+    <p class="tagline">Turn your Android phone into a 6DOF head tracker for OpenTrack.</p>
   </header>
 
-  <a class="card" href="allpdf/">
-    <h2>AllPDF</h2>
-    <p>Scan documents and work with PDFs on Android.</p>
-  </a>
+  <section>
+    <h2>What it does</h2>
+    <ul>
+      <li>Inside-out 6DOF head tracking using your phone's camera and motion sensors.</li>
+      <li>Streams position and rotation to OpenTrack on your PC over your local network.</li>
+      <li>No external camera or beacons needed, the phone tracks itself in space.</li>
+    </ul>
+  </section>
 
-  <a class="card" href="ar-headtracker/">
-    <h2>AR Headtracker</h2>
-    <p>6DOF phone head tracking for OpenTrack.</p>
-  </a>
-
-  <a class="card" href="optmat-mva-visualizer/">
-    <h2>OptMat MVA Visualizer</h2>
-    <p>Timetable replay visualizer.</p>
-  </a>
+  <section>
+    <h2>Privacy</h2>
+    <p>Camera images never leave your phone. Read the full <a href="privacy.html">privacy policy</a>.</p>
+  </section>
 
   <footer>
-    <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="mailto:victorgf2011@gmail.com">Contact</a>
   </footer>
 </main>
 </body>

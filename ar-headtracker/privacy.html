@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AR Headtracker Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --page: #faf6f3;
+    --surface: #fdfaf8;
+    --ink: #221a18;
+    --ink-soft: #54473f;
+    --line: #d9ccc6;
+    --accent: #a8322c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #181110;
+      --surface: #1e1614;
+      --ink: #ede1dc;
+      --ink-soft: #dccbc4;
+      --line: #54473f;
+      --accent: #efa79d;
+    }
+  }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    padding: clamp(24px, 6vw, 72px) 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 68ch; margin: 0 auto; }
+
+  header { margin-bottom: 40px; }
+  .mark {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .mark svg { width: 40px; height: 40px; border-radius: 10px; display: block; }
+  .mark span {
+    font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em;
+  }
+  h1 {
+    font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .updated { color: var(--ink-soft); font-size: 0.92rem; }
+
+  h2 {
+    font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.28rem;
+    margin: 44px 0 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  section:first-of-type h2 { border-top: none; padding-top: 0; }
+  p { margin-bottom: 14px; }
+  p + p { margin-top: 0; }
+  ul { margin: 0 0 14px 1.2em; }
+  li { margin-bottom: 8px; }
+  strong { font-weight: 700; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+
+  .lead { font-size: 1.12rem; color: var(--ink-soft); margin-bottom: 8px; }
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 20px 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft); font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span class="mark">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1E1B16"/><stop offset="1" stop-color="#0B0A08"/>
+          </linearGradient>
+        </defs>
+        <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+        <g transform="translate(256 262) scale(0.72) translate(-256 -262)" fill="#E8A317" fill-rule="evenodd">
+          <path d="M256 126 Q354 126 382 216 Q392 250 386 296 Q380 340 350 364 Q356 372 350 384 Q342 400 316 396 Q328 372 322 348 Q292 366 256 366 Q220 366 190 348 Q184 372 196 396 Q170 400 162 384 Q156 372 162 364 Q132 340 126 296 Q120 250 130 216 Q158 126 256 126 Z M160 250 Q256 226 352 250 Q356 280 336 298 Q256 314 176 298 Q156 280 160 250 Z M240 140 Q236 182 240 214 L226 214 Q221 180 226 143 Q232 140 240 140 Z M272 140 Q276 182 272 214 L286 214 Q291 180 286 143 Q280 140 272 140 Z"/>
+        </g>
+      </svg>
+      <span>AR Headtracker</span>
+    </span>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated 10 August 2026</p>
+  </header>
+
+  <section>
+    <h2>The short version</h2>
+    <p class="lead">AR Headtracker turns your phone's camera and motion sensors into a 6DOF head tracker for OpenTrack on your PC.</p>
+    <div class="callout">
+      <p>The app processes the camera image and motion sensors on your device to work out how your head is moving. It has no user accounts and runs no server of its own. The only thing it sends off the phone is a stream of position and rotation numbers, over your own local network, to a PC address you enter yourself. The camera image itself is never stored or transmitted. The only data reaching a third party is what Google's advertising and billing services collect, described below.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Camera and motion sensors</h2>
+    <p>To track your head, AR Headtracker uses Google's ARCore, which reads your phone's <strong>camera</strong> together with its motion sensors (accelerometer and gyroscope). This happens live, on your device, only while tracking is running. The app uses the camera feed solely to compute the phone's position and orientation in space.</p>
+    <p>AR Headtracker does <strong>not</strong> save photos or video, does not use the microphone, and does not access the camera in the background. Camera frames are processed in memory for tracking and then discarded; they are never written to storage, uploaded to us, or sent to any third party.</p>
+  </section>
+
+  <section>
+    <h2>The tracking data you send</h2>
+    <p>When you tap Start, the app sends a continuous stream of six numbers, three for position and three for rotation, as UDP network packets to the IP address and port you type into the app. This is intended for a computer on your own local network running OpenTrack.</p>
+    <p>These packets contain only pose numbers. They contain no images, no personal information, and no device identifiers. AR Headtracker does not receive this stream back and does not store it; where it goes is entirely determined by the address you enter. Sending it over an untrusted network is your choice, so point it only at a machine you control.</p>
+  </section>
+
+  <section>
+    <h2>Advertising (Google AdMob)</h2>
+    <p>Unless you purchase ad removal, AR Headtracker shows a banner ad supplied by Google AdMob. To serve ads, the Google Mobile Ads SDK may collect and process:</p>
+    <ul>
+      <li>your device's advertising identifier and general device information (model, OS version, language, coarse region);</li>
+      <li>approximate, non-precise location inferred from your IP address;</li>
+      <li>ad interaction data (impressions and clicks) used to serve and measure ads and to detect invalid activity.</li>
+    </ul>
+    <p>This data is handled by Google under its own privacy policy. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+    <p>If you are in the European Economic Area, the UK, or Switzerland, AR Headtracker shows you a Google-certified consent form (via the User Messaging Platform) before requesting personalized ads, and you can change or withdraw that consent at any time from within the app.</p>
+  </section>
+
+  <section>
+    <h2>Removing ads (Google Play Billing)</h2>
+    <p>AR Headtracker offers a one-time in-app purchase that removes all ads. The purchase is processed by Google Play Billing; AR Headtracker never sees or stores your payment details. The app only learns whether the ad-removal entitlement is owned, so it can hide ads and restore your purchase on a new device. Payment handling is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+  </section>
+
+  <section>
+    <h2>What AR Headtracker does not do</h2>
+    <ul>
+      <li>No accounts, sign-in, or profiles.</li>
+      <li>No saving or transmission of camera images or video.</li>
+      <li>No analytics or tracking SDKs beyond what Google AdMob requires to serve ads.</li>
+      <li>No selling or sharing of your personal data.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Children</h2>
+    <p>AR Headtracker is a general-purpose utility and is not directed at children under 13. We do not knowingly collect personal data from children.</p>
+  </section>
+
+  <section>
+    <h2>Your choices</h2>
+    <ul>
+      <li>Buy ad removal to stop ad-related data collection by the ads SDK.</li>
+      <li>Reset or delete your advertising identifier in Android Settings, Privacy, Ads.</li>
+      <li>In the EEA/UK/Switzerland, change your ad-consent choice from within the app.</li>
+      <li>Stop tracking at any time to end all camera use and network sending.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be posted at this address with a new "last updated" date.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Questions about this policy or your data: <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    AR Headtracker, a 6DOF inside-out head tracker for OpenTrack.
+  </footer>
+</main>
+</body>
+</html>
