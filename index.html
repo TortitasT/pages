@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor García Fernández — Apps</title>
+<meta name="description" content="Apps and projects by Victor García Fernández.">
+<style>
+  :root { color-scheme: light dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --page: #faf6f3;
+    --surface: #fdfaf8;
+    --ink: #221a18;
+    --ink-soft: #54473f;
+    --line: #d9ccc6;
+    --accent: #a8322c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #181110;
+      --surface: #1e1614;
+      --ink: #ede1dc;
+      --ink-soft: #dccbc4;
+      --line: #54473f;
+      --accent: #efa79d;
+    }
+  }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    padding: clamp(24px, 6vw, 72px) 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 68ch; margin: 0 auto; }
+
+  header { margin-bottom: 40px; }
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-size: 1.05rem;
+  }
+
+  a.card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: clamp(20px, 4vw, 28px);
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: inherit;
+  }
+  a.card:hover { border-color: var(--accent); }
+  a.card h2 {
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: var(--accent);
+  }
+  a.card p { color: var(--ink-soft); font-size: 0.95rem; }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Victor García Fernández</h1>
+    <p class="tagline">Apps and projects.</p>
+  </header>
+
+  <a class="card" href="allpdf/">
+    <h2>AllPDF</h2>
+    <p>Scan documents and work with PDFs on Android.</p>
+  </a>
+
+  <a class="card" href="optmat-mva-visualizer/">
+    <h2>OptMat MVA Visualizer</h2>
+    <p>Timetable replay visualizer.</p>
+  </a>
+
+  <footer>
+    <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
