@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unika — Términos de uso</title>
+<meta name="description" content="Términos de uso de Unika, agregador de cuentas (AIS): qué es el servicio, condiciones de uso, responsabilidades y limitaciones.">
+<style>
+  :root { color-scheme: light dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --page: #f4f7f7;
+    --surface: #ffffff;
+    --ink: #142020;
+    --ink-soft: #47585a;
+    --line: #d3e0e0;
+    --accent: #0f766e;
+    --accent-soft: #e6f2f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0d1615;
+      --surface: #131f1e;
+      --ink: #e5efee;
+      --ink-soft: #adc0bf;
+      --line: #2a3a39;
+      --accent: #4fd1c5;
+      --accent-soft: #10312e;
+    }
+  }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height: 1.65;
+    padding: clamp(24px, 6vw, 72px) 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 70ch; margin: 0 auto; }
+
+  .mark { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; font-weight: 700; }
+  .mark .logo {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .mark a { color: inherit; text-decoration: none; }
+
+  header { margin-bottom: 32px; }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.5rem); line-height: 1.15; letter-spacing: -0.02em; }
+  .updated { color: var(--ink-soft); margin-top: 10px; font-size: 0.95rem; }
+
+  section { margin-top: 36px; }
+  h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 12px; color: var(--accent); }
+  p { margin-bottom: 14px; }
+  .lead { font-size: 1.08rem; }
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: clamp(18px, 4vw, 24px);
+    margin: 18px 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  ul { margin: 0 0 14px 1.2em; }
+  li { margin-bottom: 8px; }
+
+  a { color: var(--accent); }
+
+  footer {
+    margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft); font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); }
+  footer p { margin-bottom: 8px; }
+  .backlink { display: inline-block; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span class="mark">
+      <span class="logo">U</span>
+      <a href="index.html">Unika</a>
+    </span>
+    <h1>Términos de uso</h1>
+    <p class="updated">Última actualización: 17 de agosto de 2026</p>
+  </header>
+
+  <section>
+    <h2>1. Qué es Unika</h2>
+    <p class="lead">
+      Unika es un servicio de información sobre cuentas (Account Information
+      Service, AIS) que te permite consultar, en una vista agregada, los saldos y
+      movimientos de tus propias cuentas bancarias.
+    </p>
+    <div class="callout">
+      <p>
+        Unika es una herramienta de <strong>solo lectura</strong>. No inicia
+        pagos, transferencias ni ninguna operación que mueva fondos. No es un
+        banco ni presta servicios de pago.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Quién presta el servicio</h2>
+    <p>
+      Unika es desarrollado y operado por <strong>Víctor García Fernández</strong>
+      (en adelante, «el operador»). El acceso a la información de tus cuentas se
+      realiza a través de <a href="https://enablebanking.com/" rel="noopener">Enable
+      Banking</a>, proveedor regulado de servicios de open banking, bajo cuya
+      licencia regulatoria (PSD2) se presta la funcionalidad AIS.
+    </p>
+  </section>
+
+  <section>
+    <h2>3. Uso permitido</h2>
+    <ul>
+      <li>Solo puedes conectar cuentas bancarias de las que seas titular o para las que estés legítimamente autorizado.</li>
+      <li>Debes proporcionar información veraz al crear tu cuenta y mantener la confidencialidad de tus credenciales de acceso a Unika.</li>
+      <li>Debes usar el servicio conforme a la ley y a estos términos, sin intentar acceder a datos de terceros ni comprometer la seguridad del sistema.</li>
+      <li>El servicio está dirigido a personas mayores de edad.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Consentimiento y acceso a tus cuentas</h2>
+    <p>
+      Para mostrarte la información de una cuenta necesitas otorgar tu
+      consentimiento explícito, que se gestiona en el entorno de autenticación de
+      tu propio banco. Este consentimiento es específico, temporal y revocable:
+    </p>
+    <ul>
+      <li>caduca periódicamente conforme a la normativa PSD2 y debe renovarse para seguir accediendo a los datos;</li>
+      <li>puedes revocarlo en cualquier momento eliminando la conexión en Unika o retirando la autorización en tu banco;</li>
+      <li>Unika no presenta como vigentes los datos de una conexión caducada o revocada.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Datos personales</h2>
+    <p>
+      El tratamiento de tus datos personales se rige por la
+      <a href="privacy.html">política de privacidad</a>, que forma parte de estos
+      términos. Resumidamente: tus datos se usan solo para prestarte el servicio,
+      no se venden ni se comparten con fines comerciales, y los datos sensibles se
+      almacenan cifrados.
+    </p>
+  </section>
+
+  <section>
+    <h2>6. Disponibilidad y estado del servicio</h2>
+    <p>
+      Unika se ofrece «tal cual» y «según disponibilidad». El servicio depende de
+      terceros (tu banco y Enable Banking) para obtener la información, por lo que
+      su disponibilidad, exactitud y actualización pueden verse afectadas por esos
+      sistemas. La información mostrada es orientativa y para consulta; la fuente
+      autorizada de tus saldos y movimientos es siempre tu banco.
+    </p>
+    <p>
+      Durante la fase de pruebas (sandbox), las cuentas y movimientos mostrados son
+      simulaciones y no corresponden a datos financieros reales.
+    </p>
+  </section>
+
+  <section>
+    <h2>7. Limitación de responsabilidad</h2>
+    <p>
+      En la máxima medida permitida por la ley, el operador no será responsable de
+      decisiones tomadas a partir de la información mostrada, ni de interrupciones,
+      inexactitudes o retrasos derivados de los sistemas de terceros. Nada en estos
+      términos excluye responsabilidades que no puedan limitarse legalmente.
+    </p>
+  </section>
+
+  <section>
+    <h2>8. Baja y terminación</h2>
+    <p>
+      Puedes dejar de usar Unika y eliminar tus conexiones y tu cuenta en cualquier
+      momento. El operador puede suspender o retirar el servicio, o una cuenta que
+      incumpla estos términos, notificándolo cuando sea razonablemente posible.
+    </p>
+  </section>
+
+  <section>
+    <h2>9. Cambios en los términos</h2>
+    <p>
+      Estos términos pueden actualizarse para reflejar cambios en el servicio o en
+      la normativa aplicable. La versión vigente se publica en esta página con su
+      fecha de actualización.
+    </p>
+  </section>
+
+  <section>
+    <h2>10. Legislación y contacto</h2>
+    <p>
+      Estos términos se rigen por la legislación española y la normativa de la
+      Unión Europea aplicable. Para cualquier cuestión, escribe a
+      <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a>.
+    </p>
+  </section>
+
+  <footer>
+    <a class="backlink" href="index.html">← Volver a Unika</a>
+    <p><strong>Operador:</strong> Víctor García Fernández · <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a></p>
+    <p>
+      Servicio de información sobre cuentas (AIS) operado bajo la licencia
+      regulatoria de <a href="https://enablebanking.com/" rel="noopener">Enable Banking</a> (PSD2).
+    </p>
+  </footer>
+</main>
+</body>
+</html>

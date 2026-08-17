@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unika — Agregador de cuentas (AIS)</title>
+<meta name="description" content="Unika es un agregador de cuentas bancarias (AIS) que reúne los saldos y movimientos de tus propias cuentas en un solo lugar, mediante open banking (PSD2) a través de Enable Banking.">
+<style>
+  :root { color-scheme: light dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --page: #f4f7f7;
+    --surface: #ffffff;
+    --ink: #142020;
+    --ink-soft: #47585a;
+    --line: #d3e0e0;
+    --accent: #0f766e;
+    --accent-soft: #e6f2f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0d1615;
+      --surface: #131f1e;
+      --ink: #e5efee;
+      --ink-soft: #adc0bf;
+      --line: #2a3a39;
+      --accent: #4fd1c5;
+      --accent-soft: #10312e;
+    }
+  }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    padding: clamp(24px, 6vw, 72px) 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 70ch; margin: 0 auto; }
+
+  .mark {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-bottom: 28px; font-weight: 700; font-size: 1.05rem;
+  }
+  .mark .logo {
+    width: 40px; height: 40px; border-radius: 11px;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.2rem;
+  }
+  .badge {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 3px 9px;
+  }
+
+  header { margin-bottom: 40px; }
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15; letter-spacing: -0.02em;
+  }
+  .tagline { color: var(--ink-soft); margin-top: 12px; font-size: 1.1rem; }
+
+  section { margin-top: 40px; }
+  h2 {
+    font-size: 1.3rem; letter-spacing: -0.01em; margin-bottom: 12px;
+    color: var(--accent);
+  }
+  p { margin-bottom: 14px; }
+  .lead { font-size: 1.1rem; }
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: clamp(18px, 4vw, 24px);
+    margin: 20px 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  ul { margin: 0 0 14px 1.2em; }
+  li { margin-bottom: 8px; }
+
+  .grid { display: grid; gap: 14px; grid-template-columns: 1fr; margin-top: 20px; }
+  @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: clamp(18px, 4vw, 22px);
+  }
+  .feature h3 { font-size: 1.02rem; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .feature p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 0; }
+
+  a { color: var(--accent); }
+
+  .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+
+  footer {
+    margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft); font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); }
+  footer p { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <span class="mark">
+      <span class="logo">U</span>
+      <span>Unika</span>
+      <span class="badge">AIS · PSD2</span>
+    </span>
+    <h1>Tus cuentas, reunidas en un solo lugar</h1>
+    <p class="tagline">
+      Unika es un agregador de cuentas bancarias (Account Information Service, AIS)
+      que muestra los saldos y movimientos de <strong>tus propias cuentas</strong>,
+      reunidos en una sola vista, mediante open banking (PSD2).
+    </p>
+  </header>
+
+  <section>
+    <h2>Qué hace</h2>
+    <p class="lead">
+      Conectas tus cuentas bancarias y Unika te muestra tu situación agregada:
+      saldo total, cuentas, y un calendario de gastos e ingresos por día. Es una
+      herramienta de solo lectura: consulta información, nunca mueve dinero.
+    </p>
+    <div class="grid">
+      <div class="feature">
+        <h3>Solo lectura</h3>
+        <p>Unika lee saldos y movimientos. No inicia pagos ni transferencias.</p>
+      </div>
+      <div class="feature">
+        <h3>Tus cuentas</h3>
+        <p>Solo conectas cuentas de las que eres titular, con tu consentimiento.</p>
+      </div>
+      <div class="feature">
+        <h3>Vista agregada</h3>
+        <p>Saldo total, movimientos y un calendario mensual de gastos e ingresos.</p>
+      </div>
+      <div class="feature">
+        <h3>Consentimiento explícito</h3>
+        <p>Cada conexión caduca y se renueva; tú controlas el acceso en todo momento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cómo funciona el acceso a tus cuentas</h2>
+    <p>
+      Unika accede a la información de tus cuentas a través de
+      <a href="https://enablebanking.com/" rel="noopener">Enable Banking</a>, un
+      proveedor regulado de servicios de open banking. Cuando conectas un banco,
+      eres redirigido al entorno de autenticación de tu propia entidad, donde
+      autorizas el acceso de solo lectura. Unika nunca ve ni almacena tus
+      credenciales bancarias.
+    </p>
+    <div class="callout">
+      <p>
+        El consentimiento que otorgas es específico, temporal y revocable.
+        Los consentimientos AIS caducan periódicamente conforme a la normativa
+        PSD2; Unika nunca presenta datos de una conexión caducada como vigentes,
+        y puedes eliminar una conexión cuando quieras.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Privacidad y datos</h2>
+    <p>
+      La información de tus cuentas se usa únicamente para mostrártela a ti dentro
+      de la aplicación. No se vende, no se comparte con terceros con fines
+      comerciales, y no se emplea publicidad ni rastreo. Los datos sensibles
+      (como el IBAN) se almacenan cifrados. Los detalles completos están en la
+      <a href="privacy.html">política de privacidad</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Estado</h2>
+    <p>
+      Unika es un proyecto desarrollado por Víctor García Fernández. Actualmente
+      funciona sobre el entorno <strong>sandbox</strong> de Enable Banking y se
+      encuentra en proceso de solicitud de acceso a producción. Las cuentas y
+      movimientos mostrados en sandbox son simulaciones; no corresponden a cuentas
+      reales.
+    </p>
+    <div class="links">
+      <a href="privacy.html">Política de privacidad</a>
+      <a href="terms.html">Términos de uso</a>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Responsable:</strong> Víctor García Fernández</p>
+    <p><strong>Contacto:</strong> <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a></p>
+    <p>
+      Servicio de información sobre cuentas (AIS) operado bajo la licencia
+      regulatoria de <a href="https://enablebanking.com/" rel="noopener">Enable Banking</a> (PSD2).
+    </p>
+  </footer>
+</main>
+</body>
+</html>
