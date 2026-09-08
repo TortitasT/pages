@@ -1,114 +1,890 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Victor García Fernández — Apps</title>
-<meta name="description" content="Apps and projects by Victor García Fernández.">
-<style>
-  :root { color-scheme: light dark; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#852e32" />
+    <title>
+      Víctor García: software, side projects & everything in between
+    </title>
+    <meta
+      name="description"
+      content="Software engineer working across web, mobile, desktop and developer tools. Explore Víctor García's projects, open-source contributions and creative work, from 2022 to today."
+    />
+    <meta
+      property="og:title"
+      content="Víctor García: a few years of making things"
+    />
+    <meta
+      property="og:description"
+      content="Software engineer. Web, mobile, desktop, developer tools and an archive of 92 public repositories."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://apps.vgarciaf.com/" />
+    <meta
+      property="og:image"
+      content="https://apps.vgarciaf.com/assets/portrait.jpeg"
+    />
+    <link rel="canonical" href="https://apps.vgarciaf.com/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/manrope-regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="portfolio.css" />
+    <script src="portfolio.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="identity" href="#main" aria-label="Víctor García, home"
+        ><span class="monogram" aria-hidden="true">vg.</span
+        ><span>Víctor García</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#experience">Experience</a
+        ><a href="#archive">Archive <span class="nav-count">92</span></a
+        ><a class="contact-link" href="mailto:victorgf2011@gmail.com"
+          >Say hello <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="intro">
+            <button class="portrait" type="button" disabled aria-label="See a bigger photo of Víctor">
+              <img
+                src="assets/portrait.jpeg"
+                width="44"
+                height="44"
+                alt="Víctor García"
+              />
+              <span class="wave" aria-hidden="true">
+                <img
+                  src="assets/hand-wave.png"
+                  width="123"
+                  height="111"
+                  alt=""
+                />
+              </span>
+            </button>
+            <p>Software engineer.<br /><span>Web, mobile, desktop &amp; tools.</span></p>
+          </div>
+          <h1 id="hero-title">
+            A few years <br />of <span>making things.</span>
+          </h1>
+          <p class="hero-description">
+            I build developer platforms at Cycloid. After work, it might be a
+            bus app, a Rust library, or something for my flight simulator.
+          </p>
+          <div class="hero-links">
+            <a class="button primary" href="#work"
+              >Take a look around <span aria-hidden="true">↓</span></a
+            ><a class="text-link" href="https://github.com/TortitasT"
+              >GitHub <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+            >
+          </div>
+        </div>
+        <div class="atlas" aria-label="Public repositories by creation year">
+          <div class="atlas-top">
+            <span>My project map</span>
+            <div class="segmented js-only" aria-label="Group project map">
+              <button type="button" data-layout="year" aria-pressed="true">
+                By year</button
+              ><button
+                type="button"
+                data-layout="category"
+                aria-pressed="false"
+              >
+                By interest
+              </button>
+            </div>
+          </div>
+          <div class="atlas-story">
+            <strong>One thing leads <br />to another.</strong>
+            <p>
+              Every square is a repository.<br />Pick a group to explore it.
+            </p>
+          </div>
+          <div class="plot" aria-hidden="true"><span class="plot-dot" data-name="2022-personal-page" data-fork="false" style="--x:0%;--y:14px"></span><span class="plot-dot" data-name="2023-personal-page" data-fork="false" style="--x:3%;--y:14px"></span><span class="plot-dot" data-name="2023-personal-page-fresh" data-fork="false" style="--x:6%;--y:14px"></span><span class="plot-dot" data-name="2023-personal-page-next" data-fork="false" style="--x:9%;--y:14px"></span><span class="plot-dot" data-name="2023-personal-page-nuxt3-v1" data-fork="false" style="--x:0%;--y:28px"></span><span class="plot-dot" data-name="2024-personal-page" data-fork="false" style="--x:20%;--y:14px"></span><span class="plot-dot" data-name="2025-personal-page" data-fork="false" style="--x:60%;--y:14px"></span><span class="plot-dot" data-name="actix-jobs" data-fork="false" style="--x:23%;--y:14px"></span><span class="plot-dot" data-name="advent-of-code-2022" data-fork="false" style="--x:3%;--y:28px"></span><span class="plot-dot" data-name="advent-of-code-2023" data-fork="false" style="--x:26%;--y:14px"></span><span class="plot-dot" data-name="advent-of-vue-2022" data-fork="false" style="--x:6%;--y:28px"></span><span class="plot-dot" data-name="alend" data-fork="false" style="--x:29%;--y:14px"></span><span class="plot-dot" data-name="android-platform-tools-installer" data-fork="false" style="--x:20%;--y:28px"></span><span class="plot-dot" data-name="auth-laravel-nuxt3" data-fork="false" style="--x:23%;--y:28px"></span><span class="plot-dot" data-name="benibus" data-fork="false" style="--x:26%;--y:28px"></span><span class="plot-dot" data-name="celar" data-fork="false" style="--x:9%;--y:28px"></span><span class="plot-dot" data-name="chemical-dam" data-fork="false" style="--x:29%;--y:28px"></span><span class="plot-dot" data-name="Cid-Game" data-fork="false" style="--x:0%;--y:42px"></span><span class="plot-dot" data-name="Cid-Server" data-fork="false" style="--x:3%;--y:42px"></span><span class="plot-dot" data-name="Cid-Server-GUI" data-fork="false" style="--x:6%;--y:42px"></span><span class="plot-dot" data-name="coc-intelephense" data-fork="true" style="--x:20%;--y:42px"></span><span class="plot-dot" data-name="coc-sumneko-lua" data-fork="true" style="--x:23%;--y:42px"></span><span class="plot-dot" data-name="con" data-fork="false" style="--x:26%;--y:42px"></span><span class="plot-dot" data-name="cookhub" data-fork="false" style="--x:29%;--y:42px"></span><span class="plot-dot" data-name="cooklang-js" data-fork="true" style="--x:63%;--y:14px"></span><span class="plot-dot" data-name="cpp-utils" data-fork="false" style="--x:20%;--y:56px"></span><span class="plot-dot" data-name="dam-battleship" data-fork="false" style="--x:23%;--y:56px"></span><span class="plot-dot" data-name="dam-nginx-docker" data-fork="false" style="--x:26%;--y:56px"></span><span class="plot-dot" data-name="dam-webpage" data-fork="false" style="--x:29%;--y:56px"></span><span class="plot-dot" data-name="dam2-delivery" data-fork="false" style="--x:20%;--y:70px"></span><span class="plot-dot" data-name="dbasado" data-fork="false" style="--x:23%;--y:70px"></span><span class="plot-dot" data-name="deno-api-auth" data-fork="false" style="--x:26%;--y:70px"></span><span class="plot-dot" data-name="dimers" data-fork="false" style="--x:29%;--y:70px"></span><span class="plot-dot" data-name="docker-sdk" data-fork="false" style="--x:20%;--y:84px"></span><span class="plot-dot" data-name="dormlite" data-fork="false" style="--x:9%;--y:42px"></span><span class="plot-dot" data-name="dotfiles" data-fork="false" style="--x:0%;--y:56px"></span><span class="plot-dot" data-name="edi" data-fork="false" style="--x:40%;--y:14px"></span><span class="plot-dot" data-name="FlightSimHub" data-fork="false" style="--x:80%;--y:14px"></span><span class="plot-dot" data-name="framework" data-fork="true" style="--x:23%;--y:84px"></span><span class="plot-dot" data-name="FreeOpenKneeboard" data-fork="true" style="--x:83%;--y:14px"></span><span class="plot-dot" data-name="go-web-documentation" data-fork="true" style="--x:26%;--y:84px"></span><span class="plot-dot" data-name="htemele" data-fork="false" style="--x:29%;--y:84px"></span><span class="plot-dot" data-name="i2p.website" data-fork="true" style="--x:86%;--y:14px"></span><span class="plot-dot" data-name="ja" data-fork="false" style="--x:20%;--y:98px"></span><span class="plot-dot" data-name="java-utils" data-fork="false" style="--x:23%;--y:98px"></span><span class="plot-dot" data-name="jenu" data-fork="false" style="--x:26%;--y:98px"></span><span class="plot-dot" data-name="langkeeper" data-fork="false" style="--x:29%;--y:98px"></span><span class="plot-dot" data-name="langkeeper.nvim" data-fork="false" style="--x:20%;--y:112px"></span><span class="plot-dot" data-name="lighthouse" data-fork="true" style="--x:23%;--y:112px"></span><span class="plot-dot" data-name="lucide-nuxt" data-fork="false" style="--x:43%;--y:14px"></span><span class="plot-dot" data-name="media" data-fork="false" style="--x:66%;--y:14px"></span><span class="plot-dot" data-name="mini.nvim" data-fork="true" style="--x:26%;--y:112px"></span><span class="plot-dot" data-name="monkeytype" data-fork="true" style="--x:46%;--y:14px"></span><span class="plot-dot" data-name="museeks" data-fork="true" style="--x:69%;--y:14px"></span><span class="plot-dot" data-name="node-telnet-server" data-fork="false" style="--x:3%;--y:56px"></span><span class="plot-dot" data-name="node-typescript-module" data-fork="false" style="--x:29%;--y:112px"></span><span class="plot-dot" data-name="pages" data-fork="false" style="--x:89%;--y:14px"></span><span class="plot-dot" data-name="patata-recipes" data-fork="true" style="--x:20%;--y:126px"></span><span class="plot-dot" data-name="php-ffi-rust-test" data-fork="false" style="--x:23%;--y:126px"></span><span class="plot-dot" data-name="php-skeleton" data-fork="true" style="--x:26%;--y:126px"></span><span class="plot-dot" data-name="prettier-config" data-fork="false" style="--x:29%;--y:126px"></span><span class="plot-dot" data-name="privacy-policy" data-fork="false" style="--x:60%;--y:28px"></span><span class="plot-dot" data-name="prot" data-fork="false" style="--x:6%;--y:56px"></span><span class="plot-dot" data-name="rails-baklite" data-fork="false" style="--x:49%;--y:14px"></span><span class="plot-dot" data-name="realtime-income" data-fork="false" style="--x:40%;--y:28px"></span><span class="plot-dot" data-name="roar-ng-ii" data-fork="true" style="--x:20%;--y:140px"></span><span class="plot-dot" data-name="rpg-kata" data-fork="true" style="--x:23%;--y:140px"></span><span class="plot-dot" data-name="ruvoke" data-fork="false" style="--x:26%;--y:140px"></span><span class="plot-dot" data-name="SAO-FCT-Autofill" data-fork="false" style="--x:9%;--y:56px"></span><span class="plot-dot" data-name="shadcn-vue" data-fork="true" style="--x:43%;--y:28px"></span><span class="plot-dot" data-name="sharpit" data-fork="false" style="--x:29%;--y:140px"></span><span class="plot-dot" data-name="sms-php" data-fork="true" style="--x:20%;--y:154px"></span><span class="plot-dot" data-name="ssh-cli" data-fork="false" style="--x:46%;--y:28px"></span><span class="plot-dot" data-name="stock-forecast" data-fork="false" style="--x:49%;--y:28px"></span><span class="plot-dot" data-name="styles" data-fork="false" style="--x:0%;--y:70px"></span><span class="plot-dot" data-name="SWDM-Generator" data-fork="false" style="--x:3%;--y:70px"></span><span class="plot-dot" data-name="taskt" data-fork="false" style="--x:23%;--y:154px"></span><span class="plot-dot" data-name="taskt-server" data-fork="false" style="--x:26%;--y:154px"></span><span class="plot-dot" data-name="telnet-mmo" data-fork="false" style="--x:6%;--y:70px"></span><span class="plot-dot" data-name="telnet-mmo-editor" data-fork="false" style="--x:9%;--y:70px"></span><span class="plot-dot" data-name="tevent" data-fork="false" style="--x:0%;--y:84px"></span><span class="plot-dot" data-name="tomodoro" data-fork="false" style="--x:40%;--y:42px"></span><span class="plot-dot" data-name="TortitasT" data-fork="false" style="--x:3%;--y:84px"></span><span class="plot-dot" data-name="trouter" data-fork="false" style="--x:6%;--y:84px"></span><span class="plot-dot" data-name="tsh" data-fork="false" style="--x:9%;--y:84px"></span><span class="plot-dot" data-name="Tux-Memory" data-fork="false" style="--x:0%;--y:98px"></span><span class="plot-dot" data-name="vscode-langkeeper" data-fork="false" style="--x:29%;--y:154px"></span><span class="plot-dot" data-name="vue3-electron-forge" data-fork="false" style="--x:20%;--y:168px"></span><span class="plot-dot" data-name="weather-react" data-fork="false" style="--x:43%;--y:42px"></span><span class="plot-dot" data-name="Wordle-Clone" data-fork="false" style="--x:3%;--y:98px"></span><span class="plot-dot" data-name="workflows" data-fork="false" style="--x:6%;--y:98px"></span><span class="plot-dot" data-name="wt" data-fork="true" style="--x:80%;--y:28px"></span></div>
+          <div class="plot-labels"><a href="#archive" data-group="2022">2022<small>27</small></a><a href="#archive" data-group="2023">2023<small>45</small></a><a href="#archive" data-group="2024">2024<small>10</small></a><a href="#archive" data-group="2025">2025<small>5</small></a><a href="#archive" data-group="2026">2026<small>5</small></a></div>
+          <div class="atlas-bottom">
+            <span
+              ><i class="legend-square" aria-hidden="true"></i> Original work
+              <i class="legend-square fork" aria-hidden="true"></i> Forks</span
+            ><span>2022-2026</span>
+          </div>
+        </div>
+      </section>
 
-  :root {
-    --page: #faf6f3;
-    --surface: #fdfaf8;
-    --ink: #221a18;
-    --ink-soft: #54473f;
-    --line: #d9ccc6;
-    --accent: #a8322c;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --page: #181110;
-      --surface: #1e1614;
-      --ink: #ede1dc;
-      --ink-soft: #dccbc4;
-      --line: #54473f;
-      --accent: #efa79d;
-    }
-  }
+      <section class="work-section wrap" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="work-title">A good place to start.</h2>
+            <p>A few projects with a little more to them.</p>
+          </div>
+          <a class="text-link" href="#archive"
+            >Browse all 92 repos <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5 11.5 11.5"/><path d="M11.5 6v5.5H6"/></svg></a
+          >
+        </div>
+        <div class="featured-grid">
+          <article class="project feature-langkeeper">
+            <a
+              class="project-art langkeeper-art"
+              href="https://github.com/TortitasT/langkeeper"
+              aria-label="Explore Langkeeper on GitHub"
+            >
+              <div class="ecosystem">
+                <span>Neovim</span
+                ><span class="connector" aria-hidden="true">→</span
+                ><strong>Langkeeper</strong
+                ><span class="connector" aria-hidden="true">←</span
+                ><span>VS Code</span>
+              </div>
+              <img
+                class="langkeeper-shot"
+                src="assets/langkeeper.png"
+                width="1242"
+                height="2688"
+                loading="lazy"
+                alt="Langkeeper dashboard showing time spent in different programming languages"
+              />
+              <span class="art-caption"
+                >A service. Two editor plugins. The whole loop.</span
+              >
+            </a>
+            <div class="project-copy">
+              <div class="project-meta">
+                <span>Rust - Actix - SQLite - Lua</span
+                ><time datetime="2023-07-31">2023</time>
+              </div>
+              <h3>
+                <a href="https://github.com/TortitasT/langkeeper"
+                  >Langkeeper <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                >
+              </h3>
+              <p>
+                I wanted to know where my coding time went. So I built the
+                tracking service, a dashboard, weekly email reports, and plugins
+                for Neovim and VS Code.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/TortitasT/langkeeper">Service <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                ><a href="https://github.com/TortitasT/langkeeper.nvim"
+                  >Neovim <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                ><a href="https://github.com/TortitasT/vscode-langkeeper"
+                  >VS Code <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                >
+              </div>
+            </div>
+          </article>
+          <article class="project feature-benibus">
+            <a
+              class="project-art benibus-art"
+              href="https://github.com/TortitasT/benibus"
+              aria-label="Explore Benibus on GitHub"
+              ><span class="bus-label">Benidorm, by bus.</span>
+              <div class="phone-pair">
+                <img
+                  src="assets/benibus-stops.jpeg"
+                  width="921"
+                  height="2048"
+                  loading="lazy"
+                  alt="Benibus nearby bus stops"
+                /><img
+                  src="assets/benibus-map.jpeg"
+                  width="921"
+                  height="2048"
+                  loading="lazy"
+                  alt="Benibus map of bus stops in Benidorm"
+                />
+              </div>
+              <span class="art-caption"
+                >Built for the place I call home.</span
+              ></a
+            >
+            <div class="project-copy">
+              <div class="project-meta">
+                <span>Flutter - Dart - Maps</span
+                ><time datetime="2023-08-10">2023</time>
+              </div>
+              <h3>
+                <a href="https://github.com/TortitasT/benibus"
+                  >Benibus <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                >
+              </h3>
+              <p>
+                Bus timetables for my hometown. Nearby stops, a map, and saved
+                favourites, with data from the local transport operator.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://play.google.com/store/apps/details?id=eu.tortitas.benibus"
+                  >Google Play <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                ><a href="https://github.com/TortitasT/benibus">Source <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <article class="flight-project">
+          <div class="flight-visual">
+            <img
+              class="f16"
+              src="assets/f16.png"
+              width="653"
+              height="383"
+              loading="lazy"
+              alt=""
+            />
+            <img src="assets/flight-sim.svg" alt="" width="80" height="80" />
+            <span class="flight-label">The whole cockpit,<br />one click.</span>
+            <p>Built for my own hangar.</p>
+          </div>
+          <div class="flight-copy">
+            <div class="project-meta">
+              <span>C++23 - WinUI 3 - CMake</span
+              ><time datetime="2026-07-16">2026</time>
+            </div>
+            <h3>
+              <a href="https://github.com/TortitasT/FlightSimHub"
+                >FlightSimHub <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+              >
+            </h3>
+            <p>
+              Every flight started the same way: four programs, always in the
+              same order, before touching the throttle. So I built a launcher
+              that finds what I have installed, starts it all in sequence, and
+              shuts it down again when I land.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/TortitasT/FlightSimHub"
+                >Explore the code <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+              ><a href="https://github.com/TortitasT/FreeOpenKneeboard"
+                >Related: my OpenKneeboard fork <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+              >
+            </div>
+          </div>
+        </article>
+        <div class="tool-shelf">
+          <p class="shelf-title">Smaller tools,<br />useful problems.</p>
+          <a href="https://github.com/TortitasT/actix-jobs"
+            ><span>actix-jobs <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span
+            ><small>A job scheduler for Actix</small></a
+          ><a href="https://github.com/TortitasT/ja"
+            ><span>ja <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span
+            ><small>Java packages, managed in Go</small></a
+          ><a href="https://github.com/TortitasT/lucide-nuxt"
+            ><span>lucide-nuxt <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span
+            ><small>Icon auto-imports for Nuxt</small></a
+          >
+        </div>
+      </section>
 
-  body {
-    background: var(--page);
-    color: var(--ink);
-    font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    padding: clamp(24px, 6vw, 72px) 20px 96px;
-    -webkit-font-smoothing: antialiased;
-  }
-  main { max-width: 68ch; margin: 0 auto; }
+      <section
+        class="experience-section"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <div class="wrap experience-grid">
+          <div class="experience-intro">
+            <h2 id="experience-title">And during <br />office hours.</h2>
+            <p>
+              Frontend development and UX, from building an e-commerce platform
+              to working on an internal developer platform.
+            </p>
+            <a class="text-link" href="https://www.linkedin.com/in/vgarciafer/"
+              >LinkedIn <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+            >
+          </div>
+          <div class="career-list">
+            <article class="career">
+              <div class="career-date">
+                2025-present<span class="current">Now</span>
+              </div>
+              <div>
+                <h3>Cycloid</h3>
+                <p class="role">Senior Software Engineer</p>
+                <p>
+                  Building internal developer platform software for enterprise
+                  clients including the European Commission, Siemens and NTT
+                  Data.
+                </p>
+              </div>
+            </article>
+            <article class="career">
+              <div class="career-date">2024-2025</div>
+              <div>
+                <h3>Indra Group</h3>
+                <p class="role">Software Engineer - UX team</p>
+                <p>
+                  Working across Vue 2 and 3, SAP and Figma, with development
+                  and design in the same conversation.
+                </p>
+              </div>
+            </article>
+            <article class="career">
+              <div class="career-date">2022-2024</div>
+              <div>
+                <h3>Descom</h3>
+                <p class="role">Web Developer</p>
+                <p>
+                  Helping create an e-commerce platform from scratch with Vue
+                  and Laravel.
+                </p>
+              </div>
+            </article>
+            <a class="career-source" href="https://vgarciaf.com/about"
+              >More about me on vgarciaf.com <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+            >
+          </div>
+        </div>
+      </section>
 
-  header { margin-bottom: 40px; }
-  h1 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-  .tagline {
-    color: var(--ink-soft);
-    margin-top: 10px;
-    font-size: 1.05rem;
-  }
+      <section class="products-section wrap" aria-labelledby="products-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="products-title">Beyond the public repos.</h2>
+            <p>Other things I’ve built, with a place of their own.</p>
+          </div>
+        </div>
+        <div class="product-list">
+          <a href="https://savy.lol/"
+            ><span class="product-name">Savy</span
+            ><span>Versioned cloud saves for emulators and DRM-free games.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="https://shotcraft.vercel.app/"
+            ><span class="product-name">Shotcraft</span
+            ><span>A platform for making app screenshots.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="unika/"
+            ><span class="product-name">Unika</span
+            ><span>Your bank accounts together, through open banking.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="allpdf/"
+            ><span class="product-name">AllPDF</span
+            ><span>Document scanning and PDF tools for Android.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="ar-headtracker/"
+            ><span class="product-name">AR Headtracker</span
+            ><span
+              >Six degrees of head tracking, from a phone to OpenTrack.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="optmat-mva-visualizer/"
+            ><span class="product-name">OptMat MVA Visualizer</span
+            ><span>A timetable replay visualizer.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+        </div>
+      </section>
 
-  a.card {
-    display: block;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: clamp(20px, 4vw, 28px);
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: inherit;
-  }
-  a.card:hover { border-color: var(--accent); }
-  a.card h2 {
-    font-size: 1.15rem;
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-    color: var(--accent);
-  }
-  a.card p { color: var(--ink-soft); font-size: 0.95rem; }
+      <section
+        class="archive-section wrap"
+        id="archive"
+        aria-labelledby="archive-title"
+      >
+        <div class="section-heading archive-heading">
+          <div>
+            <h2 id="archive-title">The long version.</h2>
+            <p>
+              The useful, the unfinished, and the “what if?”.<br />All 92 public
+              repositories, including forks and early experiments.
+            </p>
+          </div>
+          <span class="archive-date">Snapshot - 8 September 2026</span>
+        </div>
+        <form
+          class="archive-controls js-only"
+          role="search"
+          aria-label="Search repositories"
+          onsubmit="return false;"
+        >
+          <label class="search-field"
+            ><span class="sr-only">Search repositories</span
+            ><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="10" cy="10" r="6" />
+              <path d="m15 15 5 5" /></svg
+            ><input
+              id="search"
+              type="search"
+              placeholder="Try Rust, games, or a project name…"
+              autocomplete="off"
+          /></label>
+          <label
+            ><span>Year</span
+            ><select id="year">
+              <option value="all">All years</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+              <option>2022</option>
+            </select></label
+          >
+          <label
+            ><span>Sort</span
+            ><select id="sort">
+              <option value="score">Suggested first</option>
+              <option value="newest">Newest created</option>
+              <option value="oldest">Oldest created</option>
+              <option value="updated">Last pushed</option>
+              <option value="name">A-Z</option>
+            </select></label
+          >
+        </form>
+        <div
+          class="archive-filters js-only"
+          role="group"
+          aria-label="Filter by kind"
+        >
+          <button type="button" data-filter="All" aria-pressed="true">All<small>92</small></button><button type="button" data-filter="Web" aria-pressed="false">Web<small>15</small></button><button type="button" data-filter="Apps" aria-pressed="false">Apps<small>9</small></button><button type="button" data-filter="Tools" aria-pressed="false">Tools<small>32</small></button><button type="button" data-filter="Games" aria-pressed="false">Games<small>9</small></button><button type="button" data-filter="Experiments" aria-pressed="false">Experiments<small>8</small></button><button type="button" data-filter="Forks" aria-pressed="false">Forks<small>18</small></button><button type="button" data-filter="Creative" aria-pressed="false">Creative<small>1</small></button>
+        </div>
+        <div class="archive-status">
+          <p id="result-count" role="status" aria-live="polite">
+            92 repositories
+          </p>
+          <button id="reset" class="reset js-only" type="button" hidden>
+            Clear filters</button
+          ><span>Dates show repository creation</span>
+        </div>
+        <div class="repo-list" id="repo-list"><a class="repo-row" href="https://github.com/TortitasT/FlightSimHub" data-name="FlightSimHub" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>FlightSimHub</h3><p>Create custom launchers for DCS and BMS, open companion apps automatically</p></div>
+      <span class="repo-language">C++</span><time class="repo-date" datetime="2026-07-16" title="Repository created 2026-07-16">Jul 2026</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/FreeOpenKneeboard" data-name="FreeOpenKneeboard" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>FreeOpenKneeboard<span class="fork-badge">Fork</span></h3><p>OpenKneeboard fork without the UAC requirement...</p></div>
+      <span class="repo-language">C++</span><time class="repo-date" datetime="2026-07-16" title="Repository created 2026-07-16">Jul 2026</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/benibus" data-name="benibus" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>benibus</h3><p>Bus stops, maps and timetables for my hometown, Benidorm.</p></div>
+      <span class="repo-language">Dart / Flutter</span><time class="repo-date" datetime="2023-08-10" title="Repository created 2023-08-10">Aug 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/langkeeper" data-name="langkeeper" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>langkeeper</h3><p>Keep track of the time you spend programming.</p></div>
+      <span class="repo-language">Rust</span><time class="repo-date" datetime="2023-07-31" title="Repository created 2023-07-31">Jul 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2025-personal-page" data-name="2025-personal-page" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2025-personal-page</h3><p>My personal website, career history and creative archive in Nuxt.</p></div>
+      <span class="repo-language">Vue</span><time class="repo-date" datetime="2025-04-21" title="Repository created 2025-04-21">Apr 2025</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/lucide-nuxt" data-name="lucide-nuxt" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>lucide-nuxt</h3><p>lucide-vue-next auto-imports for Nuxt 3 for the best DX with Lucide Icons.</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2024-04-26" title="Repository created 2024-04-26">Apr 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/ja" data-name="ja" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>ja</h3><p>A simple java package manager.</p></div>
+      <span class="repo-language">Go</span><time class="repo-date" datetime="2023-10-13" title="Repository created 2023-10-13">Oct 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/actix-jobs" data-name="actix-jobs" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>actix-jobs</h3><p>A simple job scheduler for Actix</p></div>
+      <span class="repo-language">Rust</span><time class="repo-date" datetime="2023-09-13" title="Repository created 2023-09-13">Sep 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/Cid-Game" data-name="Cid-Game" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>Cid-Game</h3><p>Unity project for Mio Cid</p></div>
+      <span class="repo-language">C#</span><time class="repo-date" datetime="2022-04-04" title="Repository created 2022-04-04">Apr 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/rails-baklite" data-name="rails-baklite" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>rails-baklite</h3><p>Backup and restore SQLite3 databases in your Rails app.</p></div>
+      <span class="repo-language">Ruby</span><time class="repo-date" datetime="2024-06-23" title="Repository created 2024-06-23">Jun 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2024-personal-page" data-name="2024-personal-page" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2024-personal-page</h3><p>My 2024 website, built with Preact and Vite.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2023-10-25" title="Repository created 2023-10-25">Oct 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/ruvoke" data-name="ruvoke" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>ruvoke</h3><p>Application runner made in Rust</p></div>
+      <span class="repo-language">Rust</span><time class="repo-date" datetime="2023-09-19" title="Repository created 2023-09-19">Sep 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/vscode-langkeeper" data-name="vscode-langkeeper" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>vscode-langkeeper</h3><p>Keep track of the time you spend programming.</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2023-08-17" title="Repository created 2023-08-17">Aug 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/langkeeper.nvim" data-name="langkeeper.nvim" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>langkeeper.nvim</h3><p>Keep track of the time you spend programming.</p></div>
+      <span class="repo-language">Lua</span><time class="repo-date" datetime="2023-08-15" title="Repository created 2023-08-15">Aug 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/docker-sdk" data-name="docker-sdk" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>docker-sdk</h3><p>Minimal Docker SDK for php</p></div>
+      <span class="repo-language">PHP</span><time class="repo-date" datetime="2023-02-09" title="Repository created 2023-02-09">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/auth-laravel-nuxt3" data-name="auth-laravel-nuxt3" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>auth-laravel-nuxt3</h3><p>App template with auth system</p></div>
+      <span class="repo-language">PHP</span><time class="repo-date" datetime="2023-01-04" title="Repository created 2023-01-04">Jan 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/Cid-Server" data-name="Cid-Server" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>Cid-Server</h3><p>A node.js server for the game Mio Cid.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2022-03-31" title="Repository created 2022-03-31">Mar 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/media" data-name="media" data-category="Creative">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.8v10.4M3.5 5.4l9 5.2M12.5 5.4l-9 5.2"/></svg></span><div class="repo-text"><h3>media</h3><p>Photography, writing, artwork and reading notes.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2025-03-10" title="Repository created 2025-03-10">Mar 2025</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/ssh-cli" data-name="ssh-cli" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>ssh-cli</h3><p>cli for managing ssh connections</p></div>
+      <span class="repo-language">PHP</span><time class="repo-date" datetime="2024-08-16" title="Repository created 2024-08-16">Aug 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/edi" data-name="edi" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>edi</h3><p>GUI text editor for personal use</p></div>
+      <span class="repo-language">C</span><time class="repo-date" datetime="2024-01-11" title="Repository created 2024-01-11">Jan 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/sms-php" data-name="sms-php" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>sms-php<span class="fork-badge">Fork</span></h3><p>Build your SMS application with PHP, easy SMS sending and worldwide coverage</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-09-27" title="Repository created 2023-09-27">Sep 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/taskt" data-name="taskt" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>taskt</h3><p>Todo app made in Rust</p></div>
+      <span class="repo-language">Rust</span><time class="repo-date" datetime="2023-07-10" title="Repository created 2023-07-10">Jul 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/cookhub" data-name="cookhub" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>cookhub</h3><p>Parses cooklang recipes from GitHub repositories.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2023-06-30" title="Repository created 2023-06-30">Jun 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/php-ffi-rust-test" data-name="php-ffi-rust-test" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>php-ffi-rust-test</h3><p>Rust png to avif image conversion callable from php</p></div>
+      <span class="repo-language">Rust</span><time class="repo-date" datetime="2023-05-11" title="Repository created 2023-05-11">May 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dam-battleship" data-name="dam-battleship" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>dam-battleship</h3><p>Battleship game made in winforms c# for DAM1 ED</p></div>
+      <span class="repo-language">C#</span><time class="repo-date" datetime="2023-05-02" title="Repository created 2023-05-02">May 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/coc-sumneko-lua" data-name="coc-sumneko-lua" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>coc-sumneko-lua<span class="fork-badge">Fork</span></h3><p>Lua extension using sumneko lua-language-server for coc.nvim</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-04-24" title="Repository created 2023-04-24">Apr 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/htemele" data-name="htemele" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>htemele</h3><p>Compile HTML files with support for includes and SASS compilation</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2023-02-23" title="Repository created 2023-02-23">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/chemical-dam" data-name="chemical-dam" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>chemical-dam</h3><p>A desktop application for chemical elements, compounds and reactions.</p></div>
+      <span class="repo-language">C#</span><time class="repo-date" datetime="2023-02-13" title="Repository created 2023-02-13">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/jenu" data-name="jenu" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>jenu</h3><p>CLI menu library for Java</p></div>
+      <span class="repo-language">Java</span><time class="repo-date" datetime="2023-02-08" title="Repository created 2023-02-08">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2023-personal-page" data-name="2023-personal-page" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2023-personal-page</h3><p>tortitas.eu personal page.</p></div>
+      <span class="repo-language">Vue</span><time class="repo-date" datetime="2022-12-15" title="Repository created 2022-12-15">Dec 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dormlite" data-name="dormlite" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>dormlite</h3><p>An sqlite orm for Deno</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-11-23" title="Repository created 2022-11-23">Nov 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/prot" data-name="prot" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>prot</h3><p>Project generator made in deno</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-11-12" title="Repository created 2022-11-12">Nov 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/telnet-mmo" data-name="telnet-mmo" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>telnet-mmo</h3><p>A multiplayer roleplaying game which you can interact with with telnet.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2022-10-13" title="Repository created 2022-10-13">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/pages" data-name="pages" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>pages</h3><p>Product and support pages for Unika, AllPDF, AR Headtracker and OptMat MVA Visualizer.</p></div>
+      <span class="repo-language">HTML</span><time class="repo-date" datetime="2026-07-20" title="Repository created 2026-07-20">Jul 2026</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/weather-react" data-name="weather-react" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>weather-react</h3><p>Weather app in React using TanStack Query, Typescript, shadcn/ui and TailwindCSS</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2024-02-18" title="Repository created 2024-02-18">Feb 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/tomodoro" data-name="tomodoro" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>tomodoro</h3><p>Basic pomodoro app in Expo</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2024-01-12" title="Repository created 2024-01-12">Jan 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/advent-of-code-2023" data-name="advent-of-code-2023" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>advent-of-code-2023</h3><p>Saving christmas w/ Ocaml and Elixir</p></div>
+      <span class="repo-language">Elixir</span><time class="repo-date" datetime="2023-11-07" title="Repository created 2023-11-07">Nov 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dam2-delivery" data-name="dam2-delivery" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>dam2-delivery</h3><p>Delivery app mockup made in Jetpack Compose for DAM2</p></div>
+      <span class="repo-language">Kotlin</span><time class="repo-date" datetime="2023-10-23" title="Repository created 2023-10-23">Oct 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/patata-recipes" data-name="patata-recipes" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>patata-recipes<span class="fork-badge">Fork</span></h3><p>Styling contributions to a recipe website.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-10-21" title="Repository created 2023-10-21">Oct 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/taskt-server" data-name="taskt-server" data-category="Apps">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="3.2" width="9.6" height="9.6" rx="2"/></svg></span><div class="repo-text"><h3>taskt-server</h3><p>Server for taskt</p></div>
+      <span class="repo-language">Rust</span><time class="repo-date" datetime="2023-07-16" title="Repository created 2023-07-16">Jul 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/android-platform-tools-installer" data-name="android-platform-tools-installer" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>android-platform-tools-installer</h3><p>Windows android platform tools installer (adb)</p></div>
+      <span class="repo-language">PowerShell</span><time class="repo-date" datetime="2023-06-20" title="Repository created 2023-06-20">Jun 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/alend" data-name="alend" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>alend</h3><p>A moodle events console tool.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2023-03-22" title="Repository created 2023-03-22">Mar 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/sharpit" data-name="sharpit" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>sharpit</h3><p>node sharp cli</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2023-03-08" title="Repository created 2023-03-08">Mar 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/deno-api-auth" data-name="deno-api-auth" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>deno-api-auth</h3><p>JWT authentication ready api in Deno</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2023-02-28" title="Repository created 2023-02-28">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/java-utils" data-name="java-utils" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>java-utils</h3><p>Java utils library</p></div>
+      <span class="repo-language">Java</span><time class="repo-date" datetime="2023-02-25" title="Repository created 2023-02-25">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/vue3-electron-forge" data-name="vue3-electron-forge" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>vue3-electron-forge</h3><p>Vue 3 compilable desktop app template</p></div>
+      <span class="repo-language">Vue</span><time class="repo-date" datetime="2023-02-13" title="Repository created 2023-02-13">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/tevent" data-name="tevent" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>tevent</h3><p>Event system for deno</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-12-23" title="Repository created 2022-12-23">Dec 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/trouter" data-name="trouter" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>trouter</h3><p>Deno router</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-10-25" title="Repository created 2022-10-25">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/tsh" data-name="tsh" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>tsh</h3><p>A windows shell made in TypeScript</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-10-21" title="Repository created 2022-10-21">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/telnet-mmo-editor" data-name="telnet-mmo-editor" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>telnet-mmo-editor</h3><p>Map editor for telnet mmo.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2022-10-16" title="Repository created 2022-10-16">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/node-telnet-server" data-name="node-telnet-server" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>node-telnet-server</h3><p>A telnet server made with node.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2022-10-13" title="Repository created 2022-10-13">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/Cid-Server-GUI" data-name="Cid-Server-GUI" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>Cid-Server-GUI</h3><p>An Electron GUI tool for Cid-Server</p></div>
+      <span class="repo-language">SCSS</span><time class="repo-date" datetime="2022-05-06" title="Repository created 2022-05-06">May 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dotfiles" data-name="dotfiles" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>dotfiles</h3><p>☕</p></div>
+      <span class="repo-language">C++</span><time class="repo-date" datetime="2022-03-30" title="Repository created 2022-03-30">Mar 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/realtime-income" data-name="realtime-income" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>realtime-income</h3><p>A live income counter built in Rails.</p></div>
+      <span class="repo-language">Ruby</span><time class="repo-date" datetime="2024-07-10" title="Repository created 2024-07-10">Jul 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/stock-forecast" data-name="stock-forecast" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>stock-forecast</h3><p>Stock market predictions using Prophet model in Python</p></div>
+      <span class="repo-language">Python</span><time class="repo-date" datetime="2024-07-01" title="Repository created 2024-07-01">Jul 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/rpg-kata" data-name="rpg-kata" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>rpg-kata<span class="fork-badge">Fork</span></h3><p>RPG combat exercises and a linter-workflow contribution.</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2023-06-23" title="Repository created 2023-06-23">Jun 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dam-nginx-docker" data-name="dam-nginx-docker" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>dam-nginx-docker</h3><p>dam nginx docker project.</p></div>
+      <span class="repo-language">HTML</span><time class="repo-date" datetime="2023-05-30" title="Repository created 2023-05-30">May 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/cpp-utils" data-name="cpp-utils" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>cpp-utils</h3><p>C++ utils library</p></div>
+      <span class="repo-language">C++</span><time class="repo-date" datetime="2023-03-02" title="Repository created 2023-03-02">Mar 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dam-webpage" data-name="dam-webpage" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>dam-webpage</h3><p>HTML &amp; CSS example webpage for class</p></div>
+      <span class="repo-language">HTML</span><time class="repo-date" datetime="2023-02-23" title="Repository created 2023-02-23">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dbasado" data-name="dbasado" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>dbasado</h3><p>Database script executor for class</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2023-01-25" title="Repository created 2023-01-25">Jan 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/dimers" data-name="dimers" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>dimers</h3><p>Deno timers utility library</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2023-01-17" title="Repository created 2023-01-17">Jan 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/node-typescript-module" data-name="node-typescript-module" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>node-typescript-module</h3><p>A TypeScript module starter with Jest and Prettier.</p></div>
+      <span class="repo-language">Other</span><time class="repo-date" datetime="2023-01-10" title="Repository created 2023-01-10">Jan 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/workflows" data-name="workflows" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>workflows</h3><p>Reusable workflows</p></div>
+      <span class="repo-language">Other</span><time class="repo-date" datetime="2022-12-22" title="Repository created 2022-12-22">Dec 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/styles" data-name="styles" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>styles</h3><p>common things I do with scss</p></div>
+      <span class="repo-language">SCSS</span><time class="repo-date" datetime="2022-12-16" title="Repository created 2022-12-16">Dec 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/advent-of-code-2022" data-name="advent-of-code-2022" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>advent-of-code-2022</h3><p>Advent of Code exercises in TypeScript.</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-12-02" title="Repository created 2022-12-02">Dec 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/advent-of-vue-2022" data-name="advent-of-vue-2022" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>advent-of-vue-2022</h3><p>A collection of Advent of Vue exercises.</p></div>
+      <span class="repo-language">Vue</span><time class="repo-date" datetime="2022-12-02" title="Repository created 2022-12-02">Dec 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2023-personal-page-nuxt3-v1" data-name="2023-personal-page-nuxt3-v1" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2023-personal-page-nuxt3-v1</h3><p>Personal page for 2023 made in Nuxt 3</p></div>
+      <span class="repo-language">Vue</span><time class="repo-date" datetime="2022-11-16" title="Repository created 2022-11-16">Nov 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2023-personal-page-fresh" data-name="2023-personal-page-fresh" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2023-personal-page-fresh</h3><p>Portfolio blog made in denoland fresh</p></div>
+      <span class="repo-language">TypeScript</span><time class="repo-date" datetime="2022-10-31" title="Repository created 2022-10-31">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/SAO-FCT-Autofill" data-name="SAO-FCT-Autofill" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>SAO-FCT-Autofill</h3><p>Crawler that automates the process of writing the FCT SAO diary so you don&#x27;t have to</p></div>
+      <span class="repo-language">Python</span><time class="repo-date" datetime="2022-05-18" title="Repository created 2022-05-18">May 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2022-personal-page" data-name="2022-personal-page" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2022-personal-page</h3><p>The website I use as a portfolio on my web</p></div>
+      <span class="repo-language">HTML</span><time class="repo-date" datetime="2022-03-21" title="Repository created 2022-03-21">Mar 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/Tux-Memory" data-name="Tux-Memory" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>Tux-Memory</h3><p>Memory matching game with tux</p></div>
+      <span class="repo-language">HTML</span><time class="repo-date" datetime="2022-03-03" title="Repository created 2022-03-03">Mar 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/Wordle-Clone" data-name="Wordle-Clone" data-category="Games">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.6 13.4 8 8 13.4 2.6 8Z"/></svg></span><div class="repo-text"><h3>Wordle-Clone</h3><p>Wordle clone made in class for fun</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2022-02-23" title="Repository created 2022-02-23">Feb 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/i2p.website" data-name="i2p.website" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>i2p.website<span class="fork-badge">Fork</span></h3><p>An installation documentation correction for the I2P website.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2026-03-28" title="Repository created 2026-03-28">Mar 2026</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/privacy-policy" data-name="privacy-policy" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>privacy-policy</h3><p>Privacy policy pages for my apps.</p></div>
+      <span class="repo-language">HTML</span><time class="repo-date" datetime="2025-07-21" title="Repository created 2025-07-21">Jul 2025</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/shadcn-vue" data-name="shadcn-vue" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>shadcn-vue<span class="fork-badge">Fork</span></h3><p>Vue port of shadcn-ui</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2024-02-09" title="Repository created 2024-02-09">Feb 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/monkeytype" data-name="monkeytype" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>monkeytype<span class="fork-badge">Fork</span></h3><p>The most customizable typing website with a minimalistic design and a ton of features. Test yourself in various modes, track your progress and improve your speed.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2024-01-18" title="Repository created 2024-01-18">Jan 2024</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/lighthouse" data-name="lighthouse" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>lighthouse<span class="fork-badge">Fork</span></h3><p>Automated auditing, performance metrics, and best practices for the web.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-08-31" title="Repository created 2023-08-31">Aug 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/go-web-documentation" data-name="go-web-documentation" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>go-web-documentation<span class="fork-badge">Fork</span></h3><p>Go-Web Docusaurus documentation</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-08-21" title="Repository created 2023-08-21">Aug 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/mini.nvim" data-name="mini.nvim" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>mini.nvim<span class="fork-badge">Fork</span></h3><p>Library of 30+ independent Lua modules improving overall Neovim (version 0.7 and higher) experience with minimal effort</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-06-22" title="Repository created 2023-06-22">Jun 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/prettier-config" data-name="prettier-config" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>prettier-config</h3><p>My personal prettier config</p></div>
+      <span class="repo-language">Other</span><time class="repo-date" datetime="2023-05-04" title="Repository created 2023-05-04">May 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/php-skeleton" data-name="php-skeleton" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>php-skeleton<span class="fork-badge">Fork</span></h3><p>php skeleton project.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-02-09" title="Repository created 2023-02-09">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/2023-personal-page-next" data-name="2023-personal-page-next" data-category="Web">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span><div class="repo-text"><h3>2023-personal-page-next</h3><p>A personal website experiment in Next.js.</p></div>
+      <span class="repo-language">JavaScript</span><time class="repo-date" datetime="2022-11-02" title="Repository created 2022-11-02">Nov 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/TortitasT" data-name="TortitasT" data-category="Tools">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h4v4H6Z"/><path d="M6 6V4.6a1.6 1.6 0 1 0-1.6 1.6H6Zm4 0V4.6a1.6 1.6 0 1 1 1.6 1.6H10ZM6 10v1.4a1.6 1.6 0 1 1-1.6-1.6H6Zm4 0v1.4a1.6 1.6 0 1 0 1.6-1.6H10Z"/></svg></span><div class="repo-text"><h3>TortitasT</h3><p>Github profile README</p></div>
+      <span class="repo-language">Other</span><time class="repo-date" datetime="2022-05-19" title="Repository created 2022-05-19">May 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/SWDM-Generator" data-name="SWDM-Generator" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>SWDM-Generator</h3><p>A Python generator for a Star Wars meme.</p></div>
+      <span class="repo-language">CSS</span><time class="repo-date" datetime="2022-03-19" title="Repository created 2022-03-19">Mar 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/wt" data-name="wt" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>wt<span class="fork-badge">Fork</span></h3><p>A fast, simple Git worktree helper written in Go</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2026-06-30" title="Repository created 2026-06-30">Jun 2026</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/museeks" data-name="museeks" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>museeks<span class="fork-badge">Fork</span></h3><p>🎵 A simple, clean and cross-platform music player</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2025-12-02" title="Repository created 2025-12-02">Dec 2025</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/cooklang-js" data-name="cooklang-js" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>cooklang-js<span class="fork-badge">Fork</span></h3><p>CookLang-JS is a TypeScript library for parsing CookLang.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2025-10-27" title="Repository created 2025-10-27">Oct 2025</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/coc-intelephense" data-name="coc-intelephense" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>coc-intelephense<span class="fork-badge">Fork</span></h3><p>intelephense (PHP language server) extension for coc.nvim. intelephense’s various LSP features and this extension&#x27;s additional features are available.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-11-27" title="Repository created 2023-11-27">Nov 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/framework" data-name="framework" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>framework<span class="fork-badge">Fork</span></h3><p>The Laravel Framework.</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-09-21" title="Repository created 2023-09-21">Sep 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/con" data-name="con" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>con</h3><p>Can&#x27;t clone this repo on windows</p></div>
+      <span class="repo-language">Other</span><time class="repo-date" datetime="2023-02-27" title="Repository created 2023-02-27">Feb 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/roar-ng-ii" data-name="roar-ng-ii" data-category="Forks">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.7"/><circle cx="11" cy="4" r="1.7"/><circle cx="8" cy="12.4" r="1.7"/><path d="M5 5.7v1.1c0 1.2 1 2 2 2.3m4-3.4v1.1c0 1.2-1 2-2 2.3"/></svg></span><div class="repo-text"><h3>roar-ng-ii<span class="fork-badge">Fork</span></h3><p>A generic and extensible build system for GNU/Linux distributions; orphaned</p></div>
+      <span class="repo-language">Various</span><time class="repo-date" datetime="2023-01-24" title="Repository created 2023-01-24">Jan 2023</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a>
+<a class="repo-row" href="https://github.com/TortitasT/celar" data-name="celar" data-category="Experiments">
+      <span class="repo-symbol" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" stroke="none"><circle cx="8" cy="4.4" r="1.25"/><circle cx="4.6" cy="11" r="1.25"/><circle cx="11.4" cy="11" r="1.25"/></svg></span><div class="repo-text"><h3>celar</h3><p>A tiny utility for when clear comes out as celar.</p></div>
+      <span class="repo-language">Other</span><time class="repo-date" datetime="2022-10-10" title="Repository created 2022-10-10">Oct 2022</time><span class="repo-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></span></a></div>
+        <p id="empty-state" hidden>
+          No projects match that combination. Try another search or clear the
+          filters.
+        </p>
+        <button
+          class="button archive-more js-only"
+          id="show-more"
+          type="button"
+          hidden
+        >
+          Show more repositories <span aria-hidden="true">↓</span>
+        </button>
+        <noscript
+          ><p class="no-script">
+            All repositories are listed above. Search and sorting are available
+            with JavaScript enabled.
+          </p></noscript
+        >
+      </section>
 
-  footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-    color: var(--ink-soft);
-    font-size: 0.9rem;
-  }
-  footer a { color: var(--accent); }
-</style>
-</head>
-<body>
-<main>
-  <header>
-    <h1>Victor García Fernández</h1>
-    <p class="tagline">Apps and projects.</p>
-  </header>
+      <section
+        class="contributions-section wrap"
+        aria-labelledby="contributions-title"
+      >
+        <div class="section-heading">
+          <div>
+            <h2 id="contributions-title">A few things upstream.</h2>
+            <p>
+              Small fixes, documentation, and shared projects. Credit where it
+              belongs.
+            </p>
+          </div>
+          <span class="archive-date">18 merged pull requests</span>
+        </div>
+        <div class="contribution-highlights">
+          <a href="https://github.com/descom-es/sms-php/pull/19"
+            ><span>descom / sms-php <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span>
+            <p>
+              PHP and dependency upgrades, plus a move from Travis to GitHub
+              Actions.
+            </p></a
+          ><a href="https://github.com/xiyaowong/coc-sumneko-lua/pull/37"
+            ><span>coc-sumneko-lua <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span>
+            <p>A downloader fix for unsupported operating systems.</p></a
+          ><a href="https://github.com/GoogleChrome/lighthouse/pull/15428"
+            ><span>Google / Lighthouse <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span>
+            <p>A correction to the README’s Chrome launcher example.</p></a
+          >
+        </div>
+        <details class="contribution-details">
+          <summary>All 23 public pull requests</summary>
+          <div class="pr-list"><a class="pr-row" href="https://github.com/i2p/i2p.website/pull/3"><div><strong>i2p/i2p.website</strong><p>Update i2p-archive-keyring.gpg url for debian ubuntu install</p></div><span class="pr-status other">Closed</span></a>
+<a class="pr-row" href="https://github.com/stash-io/stash-api/pull/4"><div><strong>stash-io/stash-api</strong><p>feat(www): second section</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/stash-io/stash-api/pull/3"><div><strong>stash-io/stash-api</strong><p>feat(www): First page</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/stash-io/stash-api/pull/2"><div><strong>stash-io/stash-api</strong><p>feat: ci/cd tests</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/stash-io/stash-api/pull/1"><div><strong>stash-io/stash-api</strong><p>feat: Login</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/23"><div><strong>dam2-intermodular/api</strong><p>fix: bookings delete</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/20"><div><strong>dam2-intermodular/api</strong><p>Update/delete booking</p></div><span class="pr-status other">Closed</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/19"><div><strong>dam2-intermodular/api</strong><p>Update/create rooms</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/unovue/shadcn-vue/pull/330"><div><strong>unovue/shadcn-vue</strong><p>docs: calendar typo</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/11"><div><strong>dam2-intermodular/api</strong><p>feat: rooms list</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/8"><div><strong>dam2-intermodular/api</strong><p>chore: test</p></div><span class="pr-status other">Closed</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/4"><div><strong>dam2-intermodular/api</strong><p>Users list resources</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/3"><div><strong>dam2-intermodular/api</strong><p>feat: openapi and swaggerui</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/dam2-intermodular/api/pull/1"><div><strong>dam2-intermodular/api</strong><p>feat: auth</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/monkeytypegame/monkeytype/pull/4943"><div><strong>monkeytypegame/monkeytype</strong><p>fix: typo in spanish quote id 154 (TortitasT)</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/patatowo/patata-recipes/pull/1"><div><strong>patatowo/patata-recipes</strong><p>Style refactors</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/descom-es/sms-php/pull/19"><div><strong>descom-es/sms-php</strong><p>Upgrade PHP requirement to ~8.1, upgrade all packages, switch CI/CD from Travis to GitHub actions</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/GoogleChrome/lighthouse/pull/15428"><div><strong>GoogleChrome/lighthouse</strong><p>docs(readme): fix chrome-launcher import example</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/RobyFerro/go-web-documentation/pull/6"><div><strong>RobyFerro/go-web-documentation</strong><p>Fix GetServer typo in example</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/SoftwareCraftersMurcia/rpg-kata/pull/1"><div><strong>SoftwareCraftersMurcia/rpg-kata</strong><p>Feat: linter action</p></div><span class="pr-status other">Closed</span></a>
+<a class="pr-row" href="https://github.com/nvim-mini/mini.nvim/pull/379"><div><strong>nvim-mini/mini.nvim</strong><p>(mini.files) Fix typos on comment</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/xiyaowong/coc-sumneko-lua/pull/37"><div><strong>xiyaowong/coc-sumneko-lua</strong><p>fix: downloader won&#x27;t work if not on supported OS</p></div><span class="pr-status">Merged</span></a>
+<a class="pr-row" href="https://github.com/descom-es/php-skeleton/pull/2"><div><strong>descom-es/php-skeleton</strong><p>fix: changed php version for style to 8.1, add permissions for action</p></div><span class="pr-status other">Open</span></a></div>
+        </details>
+      </section>
 
-  <a class="card" href="unika/">
-    <h2>Unika</h2>
-    <p>Account aggregator (AIS) that brings your own bank accounts into one view, via open banking.</p>
-  </a>
-
-  <a class="card" href="allpdf/">
-    <h2>AllPDF</h2>
-    <p>Scan documents and work with PDFs on Android.</p>
-  </a>
-
-  <a class="card" href="ar-headtracker/">
-    <h2>AR Headtracker</h2>
-    <p>6DOF phone head tracking for OpenTrack.</p>
-  </a>
-
-  <a class="card" href="optmat-mva-visualizer/">
-    <h2>OptMat MVA Visualizer</h2>
-    <p>Timetable replay visualizer.</p>
-  </a>
-
-  <footer>
-    <a href="mailto:victorgf2011@gmail.com">victorgf2011@gmail.com</a>
-  </footer>
-</main>
-</body>
+      <section class="offscreen-section wrap" aria-labelledby="offscreen-title">
+        <div class="offscreen-intro">
+          <h2 id="offscreen-title">Not always <br />in a code editor.</h2>
+          <p>
+            I started with Visual Basic at ten, made games, and kept picking up
+            new things. There’s also photography, artwork and the occasional bit
+            of writing.
+          </p>
+          <a class="text-link" href="https://vgarciaf.com/archive"
+            >Visit my personal archive <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+        </div>
+        <div class="offscreen-links">
+          <details open>
+            <summary>Games <span>6</span></summary>
+            <div class="creative-items">
+              <a href="https://tortitas.itch.io/mio-cid-v3"
+                >Project Cid <small>Multiplayer ARPG framework <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/wordle-clone"
+                >Wordle Clone <small>Browser puzzle <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/mio-cid"
+                >Mio Cid <small>Medieval adventure <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/tief"
+                >Tief <small>Stealth game <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/abasement"
+                >Abasement <small>My first game jam <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/smokevr"
+                >SmokeVR <small>VR experiment <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              >
+            </div>
+          </details>
+          <details>
+            <summary>Photography <span>5</span></summary>
+            <div class="creative-items"><a href="https://vgarciaf.com/archive/photography/blackout-cats-28-04-2025">Cats during the blackout<small>Photography <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/photography/c200-22-04-2025">My car &amp; my girlfriend’s cat<small>Photography <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/photography/copenhagen-2025">Copenhagen<small>Photography <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/photography/gsx250r-21-04-2025">My bike<small>Photography <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/photography/street-cats-24-05-2025">Street cats<small>Photography <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a></div>
+          </details>
+          <details>
+            <summary>Writing & reading <span>9</span></summary>
+            <div class="creative-items"><a href="https://vgarciaf.com/archive/blog/arch-tp-link-archer-t2u">TP-LINK Archer T2U on Arch Linux<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/blog/motd">A coloured message of the day<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/blog/new-page-2024">My 2024 website<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/blog/remote-work">Remote work<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/books/1984">1984<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/books/animal-farm">Animal Farm<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/books/the-metamorphosis">The Metamorphosis<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/books/the-unix-haters-handbook">The Unix Haters Handbook<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a><a href="https://vgarciaf.com/archive/books/wishlist">Reading wishlist<small>Writing & reading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a></div>
+          </details>
+          <details>
+            <summary>Artwork <span>1</span></summary>
+            <div class="creative-items">
+              <a href="https://vgarciaf.com/archive/art/vtuber-style-logo"
+                >Vtuber-style logo <small>Artwork <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              >
+            </div>
+          </details>
+        </div>
+      </section>
+      <section class="contact-section wrap" aria-labelledby="contact-title">
+        <p>That’s the tour.</p>
+        <h2 id="contact-title">Something caught your eye?</h2>
+        <a href="mailto:victorgf2011@gmail.com"
+          >Let’s talk. <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        >
+      </section>
+    </main>
+    <dialog class="lightbox" id="portrait-lightbox" aria-label="Photo of Víctor García">
+      <button class="lightbox-close" type="button" aria-label="Close photo">
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+      </button>
+      <figure>
+        <img src="assets/portrait.jpeg" width="400" height="400" alt="Víctor García" />
+        <figcaption>Víctor García<span>Benidorm, Spain</span></figcaption>
+      </figure>
+    </dialog>
+    <footer class="site-footer wrap">
+      <span>Víctor García Fernández</span>
+      <div>
+        <a href="https://vgarciaf.com">Personal site <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        ><a href="https://github.com/TortitasT">GitHub <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        ><a href="https://www.linkedin.com/in/vgarciafer/">LinkedIn <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        ><a href="#main">Back to top ↑</a>
+      </div>
+    </footer>
+    <script id="project-data" type="application/json">
+      [{"name":"2022-personal-page","category":"Web","created":"2022-03-21","pushed":"2022-04-13","description":"The website I use as a portfolio on my web","language":"HTML","score":3},{"name":"2023-personal-page","category":"Web","created":"2022-12-15","pushed":"2023-10-18","description":"tortitas.eu personal page.","language":"Vue","score":5},{"name":"2023-personal-page-fresh","category":"Web","created":"2022-10-31","pushed":"2022-11-01","description":"Portfolio blog made in denoland fresh","language":"TypeScript","score":3},{"name":"2023-personal-page-next","category":"Web","created":"2022-11-02","pushed":"2022-11-02","description":"A personal website experiment in Next.js.","language":"JavaScript","score":2},{"name":"2023-personal-page-nuxt3-v1","category":"Web","created":"2022-11-16","pushed":"2022-11-17","description":"Personal page for 2023 made in Nuxt 3","language":"Vue","score":3},{"name":"2024-personal-page","category":"Web","created":"2023-10-25","pushed":"2024-02-16","description":"My 2024 website, built with Preact and Vite.","language":"JavaScript","score":6},{"name":"2025-personal-page","category":"Web","created":"2025-04-21","pushed":"2026-08-13","description":"My personal website, career history and creative archive in Nuxt.","language":"Vue","score":7},{"name":"actix-jobs","category":"Tools","created":"2023-09-13","pushed":"2023-09-14","description":"A simple job scheduler for Actix","language":"Rust","score":7},{"name":"advent-of-code-2022","category":"Experiments","created":"2022-12-02","pushed":"2022-12-03","description":"Advent of Code exercises in TypeScript.","language":"TypeScript","score":3},{"name":"advent-of-code-2023","category":"Experiments","created":"2023-11-07","pushed":"2023-12-18","description":"Saving christmas w/ Ocaml and Elixir","language":"Elixir","score":4},{"name":"advent-of-vue-2022","category":"Experiments","created":"2022-12-02","pushed":"2022-12-03","description":"A collection of Advent of Vue exercises.","language":"Vue","score":3},{"name":"alend","category":"Tools","created":"2023-03-22","pushed":"2023-03-22","description":"A moodle events console tool.","language":"JavaScript","score":4},{"name":"android-platform-tools-installer","category":"Tools","created":"2023-06-20","pushed":"2023-06-20","description":"Windows android platform tools installer (adb)","language":"PowerShell","score":4},{"name":"auth-laravel-nuxt3","category":"Web","created":"2023-01-04","pushed":"2023-06-22","description":"App template with auth system","language":"PHP","score":6},{"name":"benibus","category":"Apps","created":"2023-08-10","pushed":"2025-05-25","description":"Bus stops, maps and timetables for my hometown, Benidorm.","language":"Dart / Flutter","score":8},{"name":"celar","category":"Experiments","created":"2022-10-10","pushed":"2022-10-10","description":"A tiny utility for when clear comes out as celar.","language":"Other","score":1},{"name":"chemical-dam","category":"Apps","created":"2023-02-13","pushed":"2023-04-02","description":"A desktop application for chemical elements, compounds and reactions.","language":"C#","score":5},{"name":"Cid-Game","category":"Games","created":"2022-04-04","pushed":"2022-05-30","description":"Unity project for Mio Cid","language":"C#","score":7},{"name":"Cid-Server","category":"Games","created":"2022-03-31","pushed":"2022-05-06","description":"A node.js server for the game Mio Cid.","language":"JavaScript","score":6},{"name":"Cid-Server-GUI","category":"Games","created":"2022-05-06","pushed":"2023-04-05","description":"An Electron GUI tool for Cid-Server","language":"SCSS","score":4},{"name":"coc-intelephense","category":"Forks","created":"2023-11-27","pushed":"2023-11-27","description":"intelephense (PHP language server) extension for coc.nvim. intelephense’s various LSP features and this extension's additional features are available.","language":"Various","score":1},{"name":"coc-sumneko-lua","category":"Forks","created":"2023-04-24","pushed":"2023-04-24","description":"Lua extension using sumneko lua-language-server for coc.nvim","language":"Various","score":5},{"name":"con","category":"Experiments","created":"2023-02-27","pushed":"2023-02-27","description":"Can't clone this repo on windows","language":"Other","score":1},{"name":"cookhub","category":"Tools","created":"2023-06-30","pushed":"2023-07-09","description":"Parses cooklang recipes from GitHub repositories.","language":"JavaScript","score":5},{"name":"cooklang-js","category":"Forks","created":"2025-10-27","pushed":"2022-03-20","description":"CookLang-JS is a TypeScript library for parsing CookLang.","language":"Various","score":1},{"name":"cpp-utils","category":"Tools","created":"2023-03-02","pushed":"2023-03-05","description":"C++ utils library","language":"C++","score":3},{"name":"dam-battleship","category":"Games","created":"2023-05-02","pushed":"2023-06-09","description":"Battleship game made in winforms c# for DAM1 ED","language":"C#","score":5},{"name":"dam-nginx-docker","category":"Tools","created":"2023-05-30","pushed":"2023-06-06","description":"dam nginx docker project.","language":"HTML","score":3},{"name":"dam-webpage","category":"Web","created":"2023-02-23","pushed":"2023-03-08","description":"HTML & CSS example webpage for class","language":"HTML","score":3},{"name":"dam2-delivery","category":"Apps","created":"2023-10-23","pushed":"2023-12-03","description":"Delivery app mockup made in Jetpack Compose for DAM2","language":"Kotlin","score":4},{"name":"dbasado","category":"Tools","created":"2023-01-25","pushed":"2023-01-26","description":"Database script executor for class","language":"TypeScript","score":3},{"name":"deno-api-auth","category":"Web","created":"2023-02-28","pushed":"2023-02-28","description":"JWT authentication ready api in Deno","language":"TypeScript","score":4},{"name":"dimers","category":"Tools","created":"2023-01-17","pushed":"2023-01-17","description":"Deno timers utility library","language":"TypeScript","score":3},{"name":"docker-sdk","category":"Tools","created":"2023-02-09","pushed":"2023-02-11","description":"Minimal Docker SDK for php","language":"PHP","score":6},{"name":"dormlite","category":"Tools","created":"2022-11-23","pushed":"2022-12-20","description":"An sqlite orm for Deno","language":"TypeScript","score":5},{"name":"dotfiles","category":"Tools","created":"2022-03-30","pushed":"2026-07-26","description":"☕","language":"C++","score":4},{"name":"edi","category":"Apps","created":"2024-01-11","pushed":"2024-01-17","description":"GUI text editor for personal use","language":"C","score":5},{"name":"FlightSimHub","category":"Apps","created":"2026-07-16","pushed":"2026-07-18","description":"Create custom launchers for DCS and BMS, open companion apps automatically","language":"C++","score":9},{"name":"framework","category":"Forks","created":"2023-09-21","pushed":"2023-09-21","description":"The Laravel Framework.","language":"Various","score":1},{"name":"FreeOpenKneeboard","category":"Forks","created":"2026-07-16","pushed":"2026-08-03","description":"OpenKneeboard fork without the UAC requirement...","language":"C++","score":8},{"name":"go-web-documentation","category":"Forks","created":"2023-08-21","pushed":"2023-08-21","description":"Go-Web Docusaurus documentation","language":"Various","score":2},{"name":"htemele","category":"Tools","created":"2023-02-23","pushed":"2023-03-07","description":"Compile HTML files with support for includes and SASS compilation","language":"TypeScript","score":5},{"name":"i2p.website","category":"Forks","created":"2026-03-28","pushed":"2026-03-28","description":"An installation documentation correction for the I2P website.","language":"Various","score":2},{"name":"ja","category":"Tools","created":"2023-10-13","pushed":"2023-10-24","description":"A simple java package manager.","language":"Go","score":7},{"name":"java-utils","category":"Tools","created":"2023-02-25","pushed":"2023-04-21","description":"Java utils library","language":"Java","score":4},{"name":"jenu","category":"Tools","created":"2023-02-08","pushed":"2023-02-24","description":"CLI menu library for Java","language":"Java","score":5},{"name":"langkeeper","category":"Web","created":"2023-07-31","pushed":"2024-01-25","description":"Keep track of the time you spend programming.","language":"Rust","score":8},{"name":"langkeeper.nvim","category":"Tools","created":"2023-08-15","pushed":"2024-01-09","description":"Keep track of the time you spend programming.","language":"Lua","score":6},{"name":"lighthouse","category":"Forks","created":"2023-08-31","pushed":"2023-09-01","description":"Automated auditing, performance metrics, and best practices for the web.","language":"Various","score":2},{"name":"lucide-nuxt","category":"Tools","created":"2024-04-26","pushed":"2024-05-02","description":"lucide-vue-next auto-imports for Nuxt 3 for the best DX with Lucide Icons.","language":"TypeScript","score":7},{"name":"media","category":"Creative","created":"2025-03-10","pushed":"2025-05-25","description":"Photography, writing, artwork and reading notes.","language":"JavaScript","score":5},{"name":"mini.nvim","category":"Forks","created":"2023-06-22","pushed":"2023-06-23","description":"Library of 30+ independent Lua modules improving overall Neovim (version 0.7 and higher) experience with minimal effort","language":"Various","score":2},{"name":"monkeytype","category":"Forks","created":"2024-01-18","pushed":"2024-01-19","description":"The most customizable typing website with a minimalistic design and a ton of features. Test yourself in various modes, track your progress and improve your speed.","language":"Various","score":2},{"name":"museeks","category":"Forks","created":"2025-12-02","pushed":"2025-11-26","description":"🎵 A simple, clean and cross-platform music player","language":"Various","score":1},{"name":"node-telnet-server","category":"Games","created":"2022-10-13","pushed":"2022-10-13","description":"A telnet server made with node.","language":"JavaScript","score":4},{"name":"node-typescript-module","category":"Tools","created":"2023-01-10","pushed":"2023-01-10","description":"A TypeScript module starter with Jest and Prettier.","language":"Other","score":3},{"name":"pages","category":"Web","created":"2026-07-20","pushed":"2026-08-17","description":"Product and support pages for Unika, AllPDF, AR Headtracker and OptMat MVA Visualizer.","language":"HTML","score":4},{"name":"patata-recipes","category":"Forks","created":"2023-10-21","pushed":"2023-10-21","description":"Styling contributions to a recipe website.","language":"Various","score":4},{"name":"php-ffi-rust-test","category":"Tools","created":"2023-05-11","pushed":"2023-05-12","description":"Rust png to avif image conversion callable from php","language":"Rust","score":5},{"name":"php-skeleton","category":"Forks","created":"2023-02-09","pushed":"2023-02-09","description":"php skeleton project.","language":"Various","score":2},{"name":"prettier-config","category":"Tools","created":"2023-05-04","pushed":"2023-05-04","description":"My personal prettier config","language":"Other","score":2},{"name":"privacy-policy","category":"Web","created":"2025-07-21","pushed":"2025-07-21","description":"Privacy policy pages for my apps.","language":"HTML","score":2},{"name":"prot","category":"Tools","created":"2022-11-12","pushed":"2022-12-12","description":"Project generator made in deno","language":"TypeScript","score":5},{"name":"rails-baklite","category":"Tools","created":"2024-06-23","pushed":"2024-07-05","description":"Backup and restore SQLite3 databases in your Rails app.","language":"Ruby","score":6},{"name":"realtime-income","category":"Web","created":"2024-07-10","pushed":"2024-07-10","description":"A live income counter built in Rails.","language":"Ruby","score":3},{"name":"roar-ng-ii","category":"Forks","created":"2023-01-24","pushed":"2013-06-29","description":"A generic and extensible build system for GNU/Linux distributions; orphaned","language":"Various","score":1},{"name":"rpg-kata","category":"Forks","created":"2023-06-23","pushed":"2023-06-23","description":"RPG combat exercises and a linter-workflow contribution.","language":"TypeScript","score":3},{"name":"ruvoke","category":"Apps","created":"2023-09-19","pushed":"2023-09-24","description":"Application runner made in Rust","language":"Rust","score":6},{"name":"SAO-FCT-Autofill","category":"Experiments","created":"2022-05-18","pushed":"2022-05-23","description":"Crawler that automates the process of writing the FCT SAO diary so you don't have to","language":"Python","score":3},{"name":"shadcn-vue","category":"Forks","created":"2024-02-09","pushed":"2024-02-09","description":"Vue port of shadcn-ui","language":"Various","score":2},{"name":"sharpit","category":"Tools","created":"2023-03-08","pushed":"2023-03-09","description":"node sharp cli","language":"JavaScript","score":4},{"name":"sms-php","category":"Forks","created":"2023-09-27","pushed":"2023-09-28","description":"Build your SMS application with PHP, easy SMS sending and worldwide coverage","language":"Various","score":5},{"name":"ssh-cli","category":"Tools","created":"2024-08-16","pushed":"2024-08-16","description":"cli for managing ssh connections","language":"PHP","score":5},{"name":"stock-forecast","category":"Experiments","created":"2024-07-01","pushed":"2024-07-01","description":"Stock market predictions using Prophet model in Python","language":"Python","score":3},{"name":"styles","category":"Tools","created":"2022-12-16","pushed":"2022-12-16","description":"common things I do with scss","language":"SCSS","score":3},{"name":"SWDM-Generator","category":"Experiments","created":"2022-03-19","pushed":"2022-03-28","description":"A Python generator for a Star Wars meme.","language":"CSS","score":2},{"name":"taskt","category":"Apps","created":"2023-07-10","pushed":"2023-07-17","description":"Todo app made in Rust","language":"Rust","score":5},{"name":"taskt-server","category":"Apps","created":"2023-07-16","pushed":"2023-07-31","description":"Server for taskt","language":"Rust","score":4},{"name":"telnet-mmo","category":"Games","created":"2022-10-13","pushed":"2022-10-18","description":"A multiplayer roleplaying game which you can interact with with telnet.","language":"JavaScript","score":5},{"name":"telnet-mmo-editor","category":"Games","created":"2022-10-16","pushed":"2022-10-17","description":"Map editor for telnet mmo.","language":"JavaScript","score":4},{"name":"tevent","category":"Tools","created":"2022-12-23","pushed":"2022-12-29","description":"Event system for deno","language":"TypeScript","score":4},{"name":"tomodoro","category":"Apps","created":"2024-01-12","pushed":"2024-01-12","description":"Basic pomodoro app in Expo","language":"TypeScript","score":4},{"name":"TortitasT","category":"Tools","created":"2022-05-19","pushed":"2024-10-29","description":"Github profile README","language":"Other","score":2},{"name":"trouter","category":"Tools","created":"2022-10-25","pushed":"2022-10-25","description":"Deno router","language":"TypeScript","score":4},{"name":"tsh","category":"Tools","created":"2022-10-21","pushed":"2022-10-24","description":"A windows shell made in TypeScript","language":"TypeScript","score":4},{"name":"Tux-Memory","category":"Games","created":"2022-03-03","pushed":"2022-03-04","description":"Memory matching game with tux","language":"HTML","score":3},{"name":"vscode-langkeeper","category":"Tools","created":"2023-08-17","pushed":"2023-08-21","description":"Keep track of the time you spend programming.","language":"TypeScript","score":6},{"name":"vue3-electron-forge","category":"Tools","created":"2023-02-13","pushed":"2023-02-13","description":"Vue 3 compilable desktop app template","language":"Vue","score":4},{"name":"weather-react","category":"Web","created":"2024-02-18","pushed":"2024-02-19","description":"Weather app in React using TanStack Query, Typescript, shadcn/ui and TailwindCSS","language":"TypeScript","score":4},{"name":"Wordle-Clone","category":"Games","created":"2022-02-23","pushed":"2022-02-28","description":"Wordle clone made in class for fun","language":"JavaScript","score":3},{"name":"workflows","category":"Tools","created":"2022-12-22","pushed":"2022-12-22","description":"Reusable workflows","language":"Other","score":3},{"name":"wt","category":"Forks","created":"2026-06-30","pushed":"2026-06-18","description":"A fast, simple Git worktree helper written in Go","language":"Various","score":1}]
+    </script>
+  </body>
 </html>

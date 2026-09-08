@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#852e32" />
+    <title>
+      Víctor García: software, side projects & everything in between
+    </title>
+    <meta
+      name="description"
+      content="Software engineer working across web, mobile, desktop and developer tools. Explore Víctor García's projects, open-source contributions and creative work, from 2022 to today."
+    />
+    <meta
+      property="og:title"
+      content="Víctor García: a few years of making things"
+    />
+    <meta
+      property="og:description"
+      content="Software engineer. Web, mobile, desktop, developer tools and an archive of 92 public repositories."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://apps.vgarciaf.com/" />
+    <meta
+      property="og:image"
+      content="https://apps.vgarciaf.com/assets/portrait.jpeg"
+    />
+    <link rel="canonical" href="https://apps.vgarciaf.com/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/manrope-regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="portfolio.css" />
+    <script src="portfolio.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="identity" href="#main" aria-label="Víctor García, home"
+        ><span class="monogram" aria-hidden="true">vg.</span
+        ><span>Víctor García</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#experience">Experience</a
+        ><a href="#archive">Archive <span class="nav-count">92</span></a
+        ><a class="contact-link" href="mailto:victorgf2011@gmail.com"
+          >Say hello <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="intro">
+            <button class="portrait" type="button" disabled aria-label="See a bigger photo of Víctor">
+              <img
+                src="assets/portrait.jpeg"
+                width="44"
+                height="44"
+                alt="Víctor García"
+              />
+              <span class="wave" aria-hidden="true">
+                <img
+                  src="assets/hand-wave.png"
+                  width="123"
+                  height="111"
+                  alt=""
+                />
+              </span>
+            </button>
+            <p>Software engineer.<br /><span>Web, mobile, desktop &amp; tools.</span></p>
+          </div>
+          <h1 id="hero-title">
+            A few years <br />of <span>making things.</span>
+          </h1>
+          <p class="hero-description">
+            I build developer platforms at Cycloid. After work, it might be a
+            bus app, a Rust library, or something for my flight simulator.
+          </p>
+          <div class="hero-links">
+            <a class="button primary" href="#work"
+              >Take a look around <span aria-hidden="true">↓</span></a
+            ><a class="text-link" href="https://github.com/TortitasT"
+              >GitHub <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+            >
+          </div>
+        </div>
+        <div class="atlas" aria-label="Public repositories by creation year">
+          <div class="atlas-top">
+            <span>My project map</span>
+            <div class="segmented js-only" aria-label="Group project map">
+              <button type="button" data-layout="year" aria-pressed="true">
+                By year</button
+              ><button
+                type="button"
+                data-layout="category"
+                aria-pressed="false"
+              >
+                By interest
+              </button>
+            </div>
+          </div>
+          <div class="atlas-story">
+            <strong>One thing leads <br />to another.</strong>
+            <p>
+              Every square is a repository.<br />Pick a group to explore it.
+            </p>
+          </div>
+          <div class="plot" aria-hidden="true">{{PLOT}}</div>
+          <div class="plot-labels">{{PLOT_LABELS}}</div>
+          <div class="atlas-bottom">
+            <span
+              ><i class="legend-square" aria-hidden="true"></i> Original work
+              <i class="legend-square fork" aria-hidden="true"></i> Forks</span
+            ><span>2022-2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-section wrap" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="work-title">A good place to start.</h2>
+            <p>A few projects with a little more to them.</p>
+          </div>
+          <a class="text-link" href="#archive"
+            >Browse all 92 repos <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5 11.5 11.5"/><path d="M11.5 6v5.5H6"/></svg></a
+          >
+        </div>
+        <div class="featured-grid">
+          <article class="project feature-langkeeper">
+            <a
+              class="project-art langkeeper-art"
+              href="https://github.com/TortitasT/langkeeper"
+              aria-label="Explore Langkeeper on GitHub"
+            >
+              <div class="ecosystem">
+                <span>Neovim</span
+                ><span class="connector" aria-hidden="true">→</span
+                ><strong>Langkeeper</strong
+                ><span class="connector" aria-hidden="true">←</span
+                ><span>VS Code</span>
+              </div>
+              <img
+                class="langkeeper-shot"
+                src="assets/langkeeper.png"
+                width="1242"
+                height="2688"
+                loading="lazy"
+                alt="Langkeeper dashboard showing time spent in different programming languages"
+              />
+              <span class="art-caption"
+                >A service. Two editor plugins. The whole loop.</span
+              >
+            </a>
+            <div class="project-copy">
+              <div class="project-meta">
+                <span>Rust - Actix - SQLite - Lua</span
+                ><time datetime="2023-07-31">2023</time>
+              </div>
+              <h3>
+                <a href="https://github.com/TortitasT/langkeeper"
+                  >Langkeeper <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                >
+              </h3>
+              <p>
+                I wanted to know where my coding time went. So I built the
+                tracking service, a dashboard, weekly email reports, and plugins
+                for Neovim and VS Code.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/TortitasT/langkeeper">Service <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                ><a href="https://github.com/TortitasT/langkeeper.nvim"
+                  >Neovim <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                ><a href="https://github.com/TortitasT/vscode-langkeeper"
+                  >VS Code <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                >
+              </div>
+            </div>
+          </article>
+          <article class="project feature-benibus">
+            <a
+              class="project-art benibus-art"
+              href="https://github.com/TortitasT/benibus"
+              aria-label="Explore Benibus on GitHub"
+              ><span class="bus-label">Benidorm, by bus.</span>
+              <div class="phone-pair">
+                <img
+                  src="assets/benibus-stops.jpeg"
+                  width="921"
+                  height="2048"
+                  loading="lazy"
+                  alt="Benibus nearby bus stops"
+                /><img
+                  src="assets/benibus-map.jpeg"
+                  width="921"
+                  height="2048"
+                  loading="lazy"
+                  alt="Benibus map of bus stops in Benidorm"
+                />
+              </div>
+              <span class="art-caption"
+                >Built for the place I call home.</span
+              ></a
+            >
+            <div class="project-copy">
+              <div class="project-meta">
+                <span>Flutter - Dart - Maps</span
+                ><time datetime="2023-08-10">2023</time>
+              </div>
+              <h3>
+                <a href="https://github.com/TortitasT/benibus"
+                  >Benibus <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                >
+              </h3>
+              <p>
+                Bus timetables for my hometown. Nearby stops, a map, and saved
+                favourites, with data from the local transport operator.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://play.google.com/store/apps/details?id=eu.tortitas.benibus"
+                  >Google Play <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+                ><a href="https://github.com/TortitasT/benibus">Source <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <article class="flight-project">
+          <div class="flight-visual">
+            <img
+              class="f16"
+              src="assets/f16.png"
+              width="653"
+              height="383"
+              loading="lazy"
+              alt=""
+            />
+            <img src="assets/flight-sim.svg" alt="" width="80" height="80" />
+            <span class="flight-label">The whole cockpit,<br />one click.</span>
+            <p>Built for my own hangar.</p>
+          </div>
+          <div class="flight-copy">
+            <div class="project-meta">
+              <span>C++23 - WinUI 3 - CMake</span
+              ><time datetime="2026-07-16">2026</time>
+            </div>
+            <h3>
+              <a href="https://github.com/TortitasT/FlightSimHub"
+                >FlightSimHub <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+              >
+            </h3>
+            <p>
+              Every flight started the same way: four programs, always in the
+              same order, before touching the throttle. So I built a launcher
+              that finds what I have installed, starts it all in sequence, and
+              shuts it down again when I land.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/TortitasT/FlightSimHub"
+                >Explore the code <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+              ><a href="https://github.com/TortitasT/FreeOpenKneeboard"
+                >Related: my OpenKneeboard fork <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+              >
+            </div>
+          </div>
+        </article>
+        <div class="tool-shelf">
+          <p class="shelf-title">Smaller tools,<br />useful problems.</p>
+          <a href="https://github.com/TortitasT/actix-jobs"
+            ><span>actix-jobs <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span
+            ><small>A job scheduler for Actix</small></a
+          ><a href="https://github.com/TortitasT/ja"
+            ><span>ja <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span
+            ><small>Java packages, managed in Go</small></a
+          ><a href="https://github.com/TortitasT/lucide-nuxt"
+            ><span>lucide-nuxt <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span
+            ><small>Icon auto-imports for Nuxt</small></a
+          >
+        </div>
+      </section>
+
+      <section
+        class="experience-section"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <div class="wrap experience-grid">
+          <div class="experience-intro">
+            <h2 id="experience-title">And during <br />office hours.</h2>
+            <p>
+              Frontend development and UX, from building an e-commerce platform
+              to working on an internal developer platform.
+            </p>
+            <a class="text-link" href="https://www.linkedin.com/in/vgarciafer/"
+              >LinkedIn <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+            >
+          </div>
+          <div class="career-list">
+            <article class="career">
+              <div class="career-date">
+                2025-present<span class="current">Now</span>
+              </div>
+              <div>
+                <h3>Cycloid</h3>
+                <p class="role">Senior Software Engineer</p>
+                <p>
+                  Building internal developer platform software for enterprise
+                  clients including the European Commission, Siemens and NTT
+                  Data.
+                </p>
+              </div>
+            </article>
+            <article class="career">
+              <div class="career-date">2024-2025</div>
+              <div>
+                <h3>Indra Group</h3>
+                <p class="role">Software Engineer - UX team</p>
+                <p>
+                  Working across Vue 2 and 3, SAP and Figma, with development
+                  and design in the same conversation.
+                </p>
+              </div>
+            </article>
+            <article class="career">
+              <div class="career-date">2022-2024</div>
+              <div>
+                <h3>Descom</h3>
+                <p class="role">Web Developer</p>
+                <p>
+                  Helping create an e-commerce platform from scratch with Vue
+                  and Laravel.
+                </p>
+              </div>
+            </article>
+            <a class="career-source" href="https://vgarciaf.com/about"
+              >More about me on vgarciaf.com <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="products-section wrap" aria-labelledby="products-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="products-title">Beyond the public repos.</h2>
+            <p>Other things I’ve built, with a place of their own.</p>
+          </div>
+        </div>
+        <div class="product-list">
+          <a href="https://savy.lol/"
+            ><span class="product-name">Savy</span
+            ><span>Versioned cloud saves for emulators and DRM-free games.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="https://shotcraft.vercel.app/"
+            ><span class="product-name">Shotcraft</span
+            ><span>A platform for making app screenshots.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="unika/"
+            ><span class="product-name">Unika</span
+            ><span>Your bank accounts together, through open banking.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="allpdf/"
+            ><span class="product-name">AllPDF</span
+            ><span>Document scanning and PDF tools for Android.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="ar-headtracker/"
+            ><span class="product-name">AR Headtracker</span
+            ><span
+              >Six degrees of head tracking, from a phone to OpenTrack.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+          <a href="optmat-mva-visualizer/"
+            ><span class="product-name">OptMat MVA Visualizer</span
+            ><span>A timetable replay visualizer.</span
+            ><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+        </div>
+      </section>
+
+      <section
+        class="archive-section wrap"
+        id="archive"
+        aria-labelledby="archive-title"
+      >
+        <div class="section-heading archive-heading">
+          <div>
+            <h2 id="archive-title">The long version.</h2>
+            <p>
+              The useful, the unfinished, and the “what if?”.<br />All 92 public
+              repositories, including forks and early experiments.
+            </p>
+          </div>
+          <span class="archive-date">Snapshot - 8 September 2026</span>
+        </div>
+        <form
+          class="archive-controls js-only"
+          role="search"
+          aria-label="Search repositories"
+          onsubmit="return false;"
+        >
+          <label class="search-field"
+            ><span class="sr-only">Search repositories</span
+            ><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="10" cy="10" r="6" />
+              <path d="m15 15 5 5" /></svg
+            ><input
+              id="search"
+              type="search"
+              placeholder="Try Rust, games, or a project name…"
+              autocomplete="off"
+          /></label>
+          <label
+            ><span>Year</span
+            ><select id="year">
+              <option value="all">All years</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+              <option>2022</option>
+            </select></label
+          >
+          <label
+            ><span>Sort</span
+            ><select id="sort">
+              <option value="score">Suggested first</option>
+              <option value="newest">Newest created</option>
+              <option value="oldest">Oldest created</option>
+              <option value="updated">Last pushed</option>
+              <option value="name">A-Z</option>
+            </select></label
+          >
+        </form>
+        <div
+          class="archive-filters js-only"
+          role="group"
+          aria-label="Filter by kind"
+        >
+          {{FILTERS}}
+        </div>
+        <div class="archive-status">
+          <p id="result-count" role="status" aria-live="polite">
+            92 repositories
+          </p>
+          <button id="reset" class="reset js-only" type="button" hidden>
+            Clear filters</button
+          ><span>Dates show repository creation</span>
+        </div>
+        <div class="repo-list" id="repo-list">{{REPOSITORIES}}</div>
+        <p id="empty-state" hidden>
+          No projects match that combination. Try another search or clear the
+          filters.
+        </p>
+        <button
+          class="button archive-more js-only"
+          id="show-more"
+          type="button"
+          hidden
+        >
+          Show more repositories <span aria-hidden="true">↓</span>
+        </button>
+        <noscript
+          ><p class="no-script">
+            All repositories are listed above. Search and sorting are available
+            with JavaScript enabled.
+          </p></noscript
+        >
+      </section>
+
+      <section
+        class="contributions-section wrap"
+        aria-labelledby="contributions-title"
+      >
+        <div class="section-heading">
+          <div>
+            <h2 id="contributions-title">A few things upstream.</h2>
+            <p>
+              Small fixes, documentation, and shared projects. Credit where it
+              belongs.
+            </p>
+          </div>
+          <span class="archive-date">18 merged pull requests</span>
+        </div>
+        <div class="contribution-highlights">
+          <a href="https://github.com/descom-es/sms-php/pull/19"
+            ><span>descom / sms-php <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span>
+            <p>
+              PHP and dependency upgrades, plus a move from Travis to GitHub
+              Actions.
+            </p></a
+          ><a href="https://github.com/xiyaowong/coc-sumneko-lua/pull/37"
+            ><span>coc-sumneko-lua <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span>
+            <p>A downloader fix for unsupported operating systems.</p></a
+          ><a href="https://github.com/GoogleChrome/lighthouse/pull/15428"
+            ><span>Google / Lighthouse <b><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></b></span>
+            <p>A correction to the README’s Chrome launcher example.</p></a
+          >
+        </div>
+        <details class="contribution-details">
+          <summary>All 23 public pull requests</summary>
+          <div class="pr-list">{{CONTRIBUTIONS}}</div>
+        </details>
+      </section>
+
+      <section class="offscreen-section wrap" aria-labelledby="offscreen-title">
+        <div class="offscreen-intro">
+          <h2 id="offscreen-title">Not always <br />in a code editor.</h2>
+          <p>
+            I started with Visual Basic at ten, made games, and kept picking up
+            new things. There’s also photography, artwork and the occasional bit
+            of writing.
+          </p>
+          <a class="text-link" href="https://vgarciaf.com/archive"
+            >Visit my personal archive <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+          >
+        </div>
+        <div class="offscreen-links">
+          <details open>
+            <summary>Games <span>6</span></summary>
+            <div class="creative-items">
+              <a href="https://tortitas.itch.io/mio-cid-v3"
+                >Project Cid <small>Multiplayer ARPG framework <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/wordle-clone"
+                >Wordle Clone <small>Browser puzzle <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/mio-cid"
+                >Mio Cid <small>Medieval adventure <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/tief"
+                >Tief <small>Stealth game <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/abasement"
+                >Abasement <small>My first game jam <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              ><a href="https://tortitas.itch.io/smokevr"
+                >SmokeVR <small>VR experiment <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              >
+            </div>
+          </details>
+          <details>
+            <summary>Photography <span>5</span></summary>
+            <div class="creative-items">{{PHOTOGRAPHY}}</div>
+          </details>
+          <details>
+            <summary>Writing & reading <span>9</span></summary>
+            <div class="creative-items">{{WRITING}}</div>
+          </details>
+          <details>
+            <summary>Artwork <span>1</span></summary>
+            <div class="creative-items">
+              <a href="https://vgarciaf.com/archive/art/vtuber-style-logo"
+                >Vtuber-style logo <small>Artwork <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></small></a
+              >
+            </div>
+          </details>
+        </div>
+      </section>
+      <section class="contact-section wrap" aria-labelledby="contact-title">
+        <p>That’s the tour.</p>
+        <h2 id="contact-title">Something caught your eye?</h2>
+        <a href="mailto:victorgf2011@gmail.com"
+          >Let’s talk. <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        >
+      </section>
+    </main>
+    <dialog class="lightbox" id="portrait-lightbox" aria-label="Photo of Víctor García">
+      <button class="lightbox-close" type="button" aria-label="Close photo">
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+      </button>
+      <figure>
+        <img src="assets/portrait.jpeg" width="400" height="400" alt="Víctor García" />
+        <figcaption>Víctor García<span>Benidorm, Spain</span></figcaption>
+      </figure>
+    </dialog>
+    <footer class="site-footer wrap">
+      <span>Víctor García Fernández</span>
+      <div>
+        <a href="https://vgarciaf.com">Personal site <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        ><a href="https://github.com/TortitasT">GitHub <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        ><a href="https://www.linkedin.com/in/vgarciafer/">LinkedIn <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.5 11.5 4.5"/><path d="M6 4.5h5.5V10"/></svg></a
+        ><a href="#main">Back to top ↑</a>
+      </div>
+    </footer>
+    <script id="project-data" type="application/json">
+      {{PROJECT_DATA}}
+    </script>
+  </body>
+</html>
